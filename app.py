@@ -11,7 +11,7 @@ from flask import Flask, jsonify
 #################################################
 # Database Setup
 #################################################
-engine = create_engine('postgresql://localhost:5432/aqiproject)
+engine = create_engine('postgresql://localhost:5432/aqiproject')
 Base = automap_base()
 # reflect the table
 Base.prepare(engine, reflect=True)
