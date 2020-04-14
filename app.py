@@ -7,24 +7,27 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 #################################################
 # Database Setup
 #################################################
 engine = create_engine('postgresql://localhost:5432/aqiproject')
+
+# reflect an existing database into a new model
 Base = automap_base()
-# reflect the table
+# reflect the tables
 Base.prepare(engine, reflect=True)
 
 # Save reference to the table
 aqi = Base.classes.aqi 
 # Titles = Base.classes.titles (WHAT TABLE NAMES ARE WE GOING TO USE?)
-​
+
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
-​
+​CORS(app)
 ​
 #################################################
 # Flask Routes
