@@ -1,5 +1,5 @@
 
-d3.csv("Resources/aqiDailyPortland.csv").then(function(data) {
+d3.csv("Resources/aqiDailySouthBend.csv").then(function(data) {
     // console.log(data)
     var pdxDate = [];
     var aqi = [];
@@ -21,7 +21,7 @@ d3.csv("Resources/aqiDailyPortland.csv").then(function(data) {
     var chart = document.getElementById('chart');
     var myChart = echarts.init(chart);
     var option = {
-        title: { text: 'Portland Daily AQI (1/1/2020 - 4/9/2020)' ,
+        title: { text: 'Portland Daily AQI (3/4/2020 - 4/10/2020)' ,
                 textAlign: 'auto'
         },
         tooltip: { 
