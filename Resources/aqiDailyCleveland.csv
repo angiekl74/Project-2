@@ -1,4 +1,4 @@
-Date,Overall AQI Value,Main Pollutant,Site Name (of Overall AQI),Site ID (of Overall AQI),Source (of Overall AQI),CO,Ozone,SO2,PM10,PM25,NO2
+Date,Overall_AQI_Value,Main Pollutant,Site Name (of Overall AQI),Site ID (of Overall AQI),Source (of Overall AQI),CO,Ozone,SO2,PM10,PM25,NO2
 1/1/2020,44,PM2.5,Cleveland Near Road,39-035-0073,AQS,2,29,4,11,44,9
 1/2/2020,26,Ozone,Cleveland Near Road,39-035-0060,AQS,5,26,4,20,25,9
 1/3/2020,57,PM2.5,Cleveland Near Road,39-035-0073,AQS,3,17,6,15,57,23
