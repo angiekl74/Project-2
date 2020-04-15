@@ -12,10 +12,11 @@ from flask import Flask, jsonify
 #################################################
 # Database Setup
 #################################################
+
 engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
 
 Base = automap_base()
-# reflect the table
+# reflect the tables
 Base.prepare(engine, reflect=True)
 
 # Save reference to the table
