@@ -99,7 +99,7 @@ def greenbay():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    greenbay_score = session.query(Greenbay.date, Greenbay.overall_aqi_value, Greenbay.main_pollutant, Greenbay.site_name, Greenbay.site_id, Greenbay.ozone, Greenbay.pm25, Greenbay.no2, Greenbay.at, Greenbay.lon, Greenbay.city_name, Greenbay.state_ordinance).all()
+    greenbay_score = session.query(Greenbay.date, Greenbay.overall_aqi_value, Greenbay.main_pollutant, Greenbay.site_name, Greenbay.site_id, Greenbay.ozone, Greenbay.pm25, Greenbay.no2, Greenbay.lat, Greenbay.lon, Greenbay.city_name, Greenbay.state_ordinance).all()
     
     session.close()
 
@@ -112,7 +112,7 @@ def la():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    la_score = session.query(La.date, La.overall_aqi_value, La.main_pollutant, La.site_name, La.site_id, La.ozone, La.pm25, La.no2, La.at, La.lon, La.city_name, La.state_ordinance).all()
+    la_score = session.query(La.date, La.overall_aqi_value, La.main_pollutant, La.site_name, La.site_id, La.ozone, La.pm25, La.no2, La.lat, La.lon, La.city_name, La.state_ordinance).all()
     
     session.close()
 
@@ -125,7 +125,7 @@ def neworleans():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    neworleans_score = session.query(Neworleans.date, Neworleans.overall_aqi_value, Neworleans.main_pollutant, Neworleans.site_name, Neworleans.site_id, Neworleans.ozone, Neworleans.pm25, Neworleans.no2, Neworleans.at, Neworleans.lon, Neworleans.city_name, Neworleans.state_ordinance).all()
+    neworleans_score = session.query(Neworleans.date, Neworleans.overall_aqi_value, Neworleans.main_pollutant, Neworleans.site_name, Neworleans.site_id, Neworleans.ozone, Neworleans.pm25, Neworleans.no2, Neworleans.lat, Neworleans.lon, Neworleans.city_name, Neworleans.state_ordinance).all()
     
     session.close()
 
@@ -138,7 +138,7 @@ def ny():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    ny_score = session.query(Ny.date, Ny.overall_aqi_value, Ny.main_pollutant, Ny.site_name, Ny.site_id, Ny.ozone, Ny.pm25, Ny.no2, Ny.at, Ny.lon, Ny.city_name, Ny.state_ordinance).all()
+    ny_score = session.query(Ny.date, Ny.overall_aqi_value, Ny.main_pollutant, Ny.site_name, Ny.site_id, Ny.ozone, Ny.pm25, Ny.no2, Ny.lat, Ny.lon, Ny.city_name, Ny.state_ordinance).all()
     
     session.close()
 
@@ -151,7 +151,7 @@ def portland():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    portland_score = session.query(Portland.date, Portland.overall_aqi_value, Portland.main_pollutant, Portland.site_name, Portland.site_id, Portland.ozone, Portland.pm25, Portland.no2, Portland.at, Portland.lon, Portland.city_name, Portland.state_ordinance).all()
+    portland_score = session.query(Portland.date, Portland.overall_aqi_value, Portland.main_pollutant, Portland.site_name, Portland.site_id, Portland.ozone, Portland.pm25, Portland.no2, Portland.lat, Portland.lon, Portland.city_name, Portland.state_ordinance).all()
     
     session.close()
 
@@ -164,7 +164,7 @@ def seattle():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    seattle_score = session.query(Seattle.date, Seattle.overall_aqi_value, Seattle.main_pollutant, Seattle.site_name, Seattle.site_id, Seattle.ozone, Seattle.pm25, Seattle.no2, Seattle.at, Seattle.lon, Seattle.city_name, Seattle.state_ordinance).all()
+    seattle_score = session.query(Seattle.date, Seattle.overall_aqi_value, Seattle.main_pollutant, Seattle.site_name, Seattle.site_id, Seattle.ozone, Seattle.pm25, Seattle.no2, Seattle.lat, Seattle.lon, Seattle.city_name, Seattle.state_ordinance).all()
     
     session.close()
 
@@ -177,7 +177,7 @@ def southbend():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    southbend_score = session.query(Southbend.date, Southbend.overall_aqi_value, Southbend.main_pollutant, Southbend.site_name, Southbend.site_id, Southbend.ozone, Southbend.pm25, Southbend.no2, Southbend.at, Southbend.lon, Southbend.city_name, Southbend.state_ordinance).all()
+    southbend_score = session.query(Southbend.date, Southbend.overall_aqi_value, Southbend.main_pollutant, Southbend.site_name, Southbend.site_id, Southbend.ozone, Southbend.pm25, Southbend.no2, Southbend.lat, Southbend.lon, Southbend.city_name, Southbend.state_ordinance).all()
     
     session.close()
 
