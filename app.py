@@ -61,7 +61,7 @@ def boise():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    boise_score = session.query(Boise.date, Boise.overall_aqi_value, Boise.main_pollutant, Boise.site_name, Boise.site_id, Boise.ozone, Boise.pm25, Boise.no2, Boise.lat, Boise.lon, Boise.city_name, Boise.state_ordinance).all()
+    boise_score = session.query.with_entities(Boise.date, Boise.overall_aqi_value, Boise.main_pollutant, Boise.site_name, Boise.site_id, Boise.ozone, Boise.pm25, Boise.no2, Boise.lat, Boise.lon, Boise.city_name, Boise.state_ordinance).all()
     
     session.close()
 
