@@ -1,5 +1,5 @@
-
-d3.csv("Resources/aqiDailySouthBend.csv").then(function(data) {
+// Pull AQI data from aqiDailyPortland.csv 
+d3.csv("Resources/aqiDailyPortland.csv").then(function(data) {
     // console.log(data)
     var pdxDate = [];
     var aqi = [];
@@ -9,15 +9,18 @@ d3.csv("Resources/aqiDailySouthBend.csv").then(function(data) {
     console.log(pdxDate, aqi);  
     }
 
+    // Sort date
     var newDate = pdxDate.sort(function(a, b) {
         // convert date object into number to resolve issue in typescript
         return  +new Date(a.date) - +new Date(b.date);
       })
     
+    // Just take 17 days PRE and POST shelter-in-place date for the city
     var dateThisYear = newDate.slice(63, 101)
     var aqiThisYear = aqi.slice(63,101)
     console.log(dateThisYear, aqiThisYear)
 
+    // Create chart
     var chart = document.getElementById('chart');
     var myChart = echarts.init(chart);
     var option = {
@@ -128,8 +131,80 @@ d3.csv("Resources/aqiDailySouthBend.csv").then(function(data) {
 
 })
 
-    
-
     // if (option && typeof option === "object") {
     //     myChart.setOption(option, true);
     // }
+
+
+// Testing dynamic Echarts
+
+// function randomData() {
+//     now = new Date(+now + oneDay);
+//     value = value + Math.random() * 21 - 10;
+//     return {
+//         name: now.toString(),
+//         value: [
+//             [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+//             Math.round(value)
+//         ]
+//     };
+// }
+
+// var data = [];
+// var now = +new Date(1997, 9, 3);
+// var oneDay = 24 * 3600 * 1000;
+// var value = Math.random() * 1000;
+// for (var i = 0; i < 1000; i++) {
+//     data.push(randomData());
+// }
+
+// option = {
+//     title: {
+//         text: '动态数据 + 时间坐标轴'
+//     },
+//     tooltip: {
+//         trigger: 'axis',
+//         formatter: function (params) {
+//             params = params[0];
+//             var date = new Date(params.name);
+//             return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+//         },
+//         axisPointer: {
+//             animation: false
+//         }
+//     },
+//     xAxis: {
+//         type: 'time',
+//         splitLine: {
+//             show: false
+//         }
+//     },
+//     yAxis: {
+//         type: 'value',
+//         boundaryGap: [0, '100%'],
+//         splitLine: {
+//             show: false
+//         }
+//     },
+//     series: [{
+//         name: '模拟数据',
+//         type: 'line',
+//         showSymbol: false,
+//         hoverAnimation: false,
+//         data: data
+//     }]
+// };
+
+// setInterval(function () {
+
+//     for (var i = 0; i < 5; i++) {
+//         data.shift();
+//         data.push(randomData());
+//     }
+
+//     myChart.setOption({
+//         series: [{
+//             data: data
+//         }]
+//     });
+// }, 1000);
