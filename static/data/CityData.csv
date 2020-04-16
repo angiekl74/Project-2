@@ -1,0 +1,51 @@
+State,City,AQI,Abbr,Population,ShelterinPlaceOrdinance
+Alabama,Birmingham,55.89,AL,209880,4/4/2020
+Alaska,Anchorage,19.5,AK,291538,3/28/2020
+Arizona,Phoenix,54.23,AZ,1660272,3/31/2020
+Arkansas,Little Rock,43.83,AR,197881,
+California,Los Angeles,47.24,CA,3990456,3/19/2020
+Colorado,Denver,48.28,CO,716492,3/26/2020
+Connecticut,Bridgeport,44.48,CT,144900,3/23/2020
+Delaware,Dover,41.25,DE,70635,3/24/2020
+Florida,Jacksonville,56.5,FL,903889,4/3/2020
+Georgia,Atlanta,57.0,GA,498044,4/3/2020
+Hawaii,Honolulu,28.26,HI,347397,3/25/2020
+Idaho,Boise,35.32,ID,228790,3/25/2020
+Illinois,Chicago,52.22,IL,2705994,3/21/2020
+Indiana,Indianapolis,52.45,IN,867125,3/24/2020
+Iowa,Des Moines,41.08,IA,216853,
+Kansas,Wichita,47.57,KS,389225,3/30/2020
+Kentucky,Louisville,49.72,KY,620118,3/26/2020
+Louisiana,New Orleans,50.52,LA,391006,3/23/2020
+Maine,Portland,41.64,ME,66417,4/2/2020
+Maryland,Baltimore,44.79,MD,602495,3/30/2020
+Massachusetts,Boston,42.3,MA,694583,3/24/2020
+Michigan,Detriot,44.65,MI,672662,3/24/2020
+Minnesota,Minneapolis,44.0,MN,425403,3/27/2020
+Mississippi,Jackson,57.7,MS,164422,4/3/2020
+Missouri,Kansas City,60.86,MO,491918,4/6/2020
+Montana,Billings,23.94,MT,109550,3/28/2020
+Nebraska,Omaha,45.31,NE,468262,
+Nevada,Las Vegas,44.17,NV,644644,4/1/2020
+New Hampshire,Manchester,41.0,NH,112525,3/27/2020
+New Jersey,Newark,42.61,NJ,282090,3/21/2020
+New Mexico,Albuquerque,49.25,NM,560218,3/24/2020
+New York,New York City,42.68,NY,8398748,3/22/2020
+North Carolina,Charlotte,46.54,NC,872498,3/30/2020
+North Dakota,Fargo,35.15,ND,124844,
+Ohio,Columbus,41.67,OH,892533,3/23/2020
+Oklahoma,Oklahoma City,48.94,OK,649021,3/28/2020
+Oregon,Portland,35.81,OR,653115,3/23/2020
+Pennsylvania,Pilladeplphia,46.5,PA,1584138,4/1/2020
+Rhode Island,Providence,44.31,RI,179335,3/28/2020
+South Carolina,Charleston,49.0,SC,136208,4/7/2020
+South Dakota,Sioux Falls,35.62,SD,181883,
+Tennessee,Nashville,47.54,TN,669053,3/31/2020
+Texas,Houston,55.82,TX,2325502,4/2/2020
+Utah,Salt Lake City,44.86,UT,200591,3/30/2020
+Vermont,Burlington,38.84,VT,42899,3/25/2020
+Virginia,Virginia Beach,41.79,VA,450189,3/30/2020
+Washington,Seattle,41.9,WA,744955,3/23/2020
+West Virginia,Charleston,44.42,WV,47215,3/24/2020
+Wisconsin,Milwaukee,43.84,WI,592025,3/25/2020
+Wyoming,Cheyenne,40.06,WY,63957,3/28/2020
