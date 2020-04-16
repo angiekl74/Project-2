@@ -1,4 +1,4 @@
-Date,Overall AQI Value,Main Pollutant,Site Name (of Overall AQI),Site ID (of Overall AQI),Source (of Overall AQI),CO,Ozone,SO2,PM10,PM25,NO2
+Date,Overall_AQI_Value,Main Pollutant,Site Name (of Overall AQI),Site ID (of Overall AQI),Source (of Overall AQI),CO,Ozone,SO2,PM10,PM25,NO2
 1/1/2020,34,Ozone,SEATTLE - BEACON HILL,53-033-0080,AirNow,,34,,,26,
 1/2/2020,31,Ozone,SEATTLE - BEACON HILL,53-033-0080,AirNow,,31,,,30,
 1/3/2020,37,Ozone,SEATTLE - BEACON HILL,53-033-0080,AirNow,,37,,,36,
