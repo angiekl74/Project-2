@@ -1,6 +1,6 @@
 // Creating map object
 var map = L.map("map", {
-  center: [33.8283, -98.5795],
+  center: [38.8283, -98.5795],
   zoom: 4
 });
 // Load in geojson data
