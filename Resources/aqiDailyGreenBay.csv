@@ -1,4 +1,4 @@
-Date,Overall AQI Value,Main Pollutant,Site Name (of Overall AQI),Site ID (of Overall AQI),Source (of Overall AQI),Ozone,SO2,PM25
+Date,Overall_AQI_Value,Main Pollutant,Site Name (of Overall AQI),Site ID (of Overall AQI),Source (of Overall AQI),Ozone,SO2,PM25
 1/1/2020,38,PM2.5,GREEN BAY EAST HIGH,55-009-0005,AirNow,.,,38
 1/2/2020,28,PM2.5,GREEN BAY EAST HIGH,55-009-0005,AirNow,.,,28
 1/3/2020,25,PM2.5,GREEN BAY EAST HIGH,55-009-0005,AirNow,.,,25
