@@ -1,4 +1,4 @@
-,date,Overall AQI Value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
+,date,overall_aqi_value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
 0,2020-01-01,33,Ozone,Helmsburg,18-013-0001,AQS,2,33,1,15,28,8,39.7684,-86.1581,Indianapolis,2020-03-24,867125
 1,2020-01-02,35,PM2.5,Indpls- W. 18th St./ Ernie Pyle School 90,18-097-0081,AQS,2,32,1,14,35,16,39.7684,-86.1581,Indianapolis,2020-03-24,867125
 2,2020-01-03,71,PM2.5,Indpls.- I 70,18-097-0087,AQS,5,17,0,21,71,23,39.7684,-86.1581,Indianapolis,2020-03-24,867125
