@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 from flask import Flask, jsonify
+# from flask_cors import CORS
 from config import password
 
 
@@ -17,6 +18,7 @@ from config import password
 # engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
 engine = create_engine(f"postgresql://postgres:{password}@localhost:5432/Project2AQI")
 conn = engine.connect()
+engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
 
 Base = automap_base()
 # reflect the tables
@@ -37,6 +39,7 @@ Indianapolis = Base.classes.indianapolis
 # Flask Setup
 #################################################
 app = Flask(__name__)
+# CORS(app)
 
 # Flask Routes
 #################################################
@@ -55,7 +58,7 @@ def welcome():
         f"<a href='/api/v1.0/neworleans'> Air Quality Index data New Orleans</a><br/>"
         f"<a href='/api/v1.0/ny'> Air Quality Index data New York City</a><br/>"
         f"<a href='/api/v1.0/portland'> Air Quality Index data Portland</a><br/>"
-        f"<a href='/api/v1.0/seattl'> Air Quality Index data Seattle</a><br/>"
+        f"<a href='/api/v1.0/seattle'> Air Quality Index data Seattle</a><br/>"
         f"<a href='/api/v1.0/indianapolis'> Air Quality Index data Indianapolis</a><br/>"
         f"<a href='/api/v1.0/linechartboise'> Air Quality Index data linechartboise</a><br/>"
 
@@ -66,23 +69,57 @@ def boise():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    boise_score = session.query(
+    # Query Boise's data
+    boise_data = session.query(
         Boise.date,
-        Boise.Overall_AQI_Value,
+        Boise.overall_aqi_value,
         Boise.main_pollutant,
         Boise.site_name,
         Boise.site_id,
-        Boise.ozone,
-        Boise.pm25,
-        Boise.no2,
+        Boise.source_aqi, 
+        # Boise.co,
+        # Boise.ozone,
+        # Boise.so2,
+        # Boise.pm10,
+        # Boise.pm25,
+        # Boise.no2,
         Boise.lat,
         Boise.lon,
         Boise.city_name,
-        Boise.state_ordinance).all()
+        Boise.state_ordinance,
+        Boise.population).all()
     
     session.close()
 
-    boise_aqi = list(np.ravel(boise_score))
+    # boise_aqi = list(np.ravel(boise_score))
+
+    # return jsonify(boise_aqi)
+
+    #  # Create our session (link) from Python to the DB
+    # session = Session(engine)
+
+    # """Return a list of passenger data including the name, age, and sex of each passenger"""
+    # # Query all passengers
+    # boise_bc = session.query(Boise.date, Boise.lat, Boise.lon).all()
+
+    # session.close()
+
+    # Create a dictionary from the row data and append to a list of all_passengers
+    boise_aqi = []
+    for date, overall_aqi_value, main_pollutant, site_name, site_id, source_aqi, lat, lon, city_name, state_ordinance, population in boise_data:
+        boise_dict = {}
+        boise_dict["date"] = date
+        boise_dict["aqi_value"] = overall_aqi_value
+        boise_dict["main_pollutant"] = main_pollutant
+        boise_dict["site_name"] = site_name
+        boise_dict["site_id"] = site_id
+        boise_dict["source_aqi"] = source_aqi
+        boise_dict["lat"] = lat
+        boise_dict["lon"] = lon
+        boise_dict["city_name"] = city_name
+        boise_dict["state_ordinance"] = state_ordinance
+        boise_dict["population"] = population
+        boise_aqi.append(boise_dict)
 
     return jsonify(boise_aqi)
 
