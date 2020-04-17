@@ -33,8 +33,13 @@ window.onload = function () {
             title :{
                 text: "Portland 2019 vs. 2020 AQI Data"
             },
+            legend: {
+                cursor: "pointer",
+                lineColor:"#949494"
+            },
             axisY: {
-                includeZero: false
+                includeZero: false,
+                title: "AQI value",
             },
             axisX:{
                 valueFormatString: "MMM-DD",
@@ -48,12 +53,13 @@ window.onload = function () {
                 showInLegend: true,
                 name: "2019",
                 markerSize: 0,
-                dataPoints: dps 
+                dataPoints: dps,
+                lineColor:"#949494" 
             },{
                 type: "spline",
                 showInLegend: true,
                 name: "2020",
-                markerSize: 10,
+                markerSize: 5,
                 dataPoints: dps2,
             }]
         });
@@ -105,10 +111,14 @@ window.onload = function () {
                     });
                     val2++;
                 }
-                // if (dps.length > dataLength) {       AO - This will stop the graph   
+                // if (dps.length > dataLength && dps2.length > dataLength) {       //AO - This will stop the graph   
                 //     dps.shift();
+                //     dps2.shift();
                 // }
-                    
+                // else if (dps.length === dataLength && dps2.length === dataLength) {
+                //     dps.shift();
+                //     dps2.shift();
+                // }    
                 chart.render()                
             };        
 
