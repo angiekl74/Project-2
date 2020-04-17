@@ -21,8 +21,8 @@ Base.prepare(engine, reflect=True)
 
 # Save reference to the table
 Boise = Base.classes.boise
-Cleveland = Base.classes.cleveland
-Grandrapids = Base.classes.grandrapids
+Columbus = Base.classes.columbus
+Detroit = Base.classes.detroit
 # Greenbay = Base.classes.greenbay
 # La = Base.classes.la
 # Neworleans = Base.classes.neworleans
@@ -61,7 +61,19 @@ def boise():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    boise_score = session.query.with_entities(Boise.date, Boise.overall_aqi_value, Boise.main_pollutant, Boise.site_name, Boise.site_id, Boise.ozone, Boise.pm25, Boise.no2, Boise.lat, Boise.lon, Boise.city_name, Boise.state_ordinance).all()
+    boise_score = session.query.(
+        Boise.date,
+        Boise.overall_aqi_value,
+        Boise.main_pollutant,
+        Boise.site_name,
+        Boise.site_id,
+        Boise.ozone,
+        Boise.pm25,
+        Boise.no2,
+        Boise.lat,
+        Boise.lon,
+        Boise.city_name,
+        Boise.state_ordinance).all()
     
     session.close()
 
@@ -69,31 +81,55 @@ def boise():
 
     return jsonify(boise_aqi)
 
-@app.route("/api/v1.0/cleveland")
-def cleveland():
+@app.route("/api/v1.0/columbus")
+def columbus():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    cleveland_score = session.query(Cleveland.date, Cleveland.overall_aqi_value, Cleveland.main_pollutant, Cleveland.site_name, Cleveland.site_id, Cleveland.ozone, Cleveland.pm25, Cleveland.no2, Cleveland.lat, Cleveland.lon, Cleveland.city_name, Cleveland.state_ordinance).all()
+    columbus_score = session.query(
+        Columbus.date,
+        Columbus.overall_aqi_value,
+        Columbus.main_pollutant,
+        Columbus.site_name,
+        Columbus.site_id,
+        Columbus.ozone,
+        Columbus.pm25,
+        Columbus.no2,
+        Columbus.lat,
+        Columbus.lon,
+        Columbus.city_name,
+        Columbus.state_ordinance).all()
     
     session.close()
 
-    cleveland_aqi = list(np.ravel(cleveland_score))
+    columbus_aqi = list(np.ravel(columbus_score))
 
-    return jsonify(cleveland_aqi)   
+    return jsonify(columbus_aqi)   
 
-@app.route("/api/v1.0/grandrapids")
-def grandrapids():
+@app.route("/api/v1.0/detroit")
+def detroit():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    grandrapids_score = session.query(Grandrapids.date, Grandrapids.overall_aqi_value, Grandrapids.main_pollutant, Grandrapids.site_name, Grandrapids.site_id, Grandrapids.ozone, Grandrapids.pm25, Grandrapids.no2, Grandrapids.at, Grandrapids.lon, Grandrapids.city_name, Grandrapids.state_ordinance).all()
+    detroit_score = session.query(
+        Detroit.date,
+        Detroit.overall_aqi_value,
+        Detroit.main_pollutant,
+        Detroit.site_name,
+        Detroit.site_id,
+        Detroit.ozone,
+        Detroit.pm25,
+        Detroit.no2,
+        Detroit.lat,
+        Detroit.lon,
+        Detroit.city_name,
+        Detroit.state_ordinance).all()
     
     session.close()
 
-    grandrapids_aqi = list(np.ravel(grandrapids_score))
+    detroit_aqi = list(np.ravel(detroit_score))
 
-    return jsonify(grandrapids_aqi)   
+    return jsonify(detroit_aqi)   
 
 @app.route("/api/v1.0/greenbay")
 def greenbay():
