@@ -7,13 +7,16 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 from flask import Flask, jsonify
+from config import password
 
 
 #################################################
 # Database Setup
 #################################################
 
-engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
+# engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
+engine = create_engine(f"postgresql://postgres:{password}@localhost:5432/Project2AQI")
+conn = engine.connect()
 
 Base = automap_base()
 # reflect the tables
