@@ -23,13 +23,13 @@ Base.prepare(engine, reflect=True)
 Boise = Base.classes.boise
 Columbus = Base.classes.columbus
 Detroit = Base.classes.detroit
-# Milwaukee = Base.classes.milwaukee
-# La = Base.classes.la
-# Neworleans = Base.classes.neworleans
-# Ny = Base.classes.ny
-# Portland = Base.classes.portland
-# Seattle = Base.classes.seattle
-# Indianapolis = Base.classes.indianapolis
+Milwaukee = Base.classes.milwaukee
+La = Base.classes.la
+Neworleans = Base.classes.neworleans
+Ny = Base.classes.ny
+Portland = Base.classes.portland
+Seattle = Base.classes.seattle
+Indianapolis = Base.classes.indianapolis
 
 # Flask Setup
 #################################################
@@ -54,6 +54,8 @@ def welcome():
         f"<a href='/api/v1.0/portland'> Air Quality Index data Portland</a><br/>"
         f"<a href='/api/v1.0/seattl'> Air Quality Index data Seattle</a><br/>"
         f"<a href='/api/v1.0/indianapolis'> Air Quality Index data Indianapolis</a><br/>"
+        f"<a href='/api/v1.0/linechartboise'> Air Quality Index data linechartboise</a><br/>"
+
     )
 
 @app.route("/api/v1.0/boise")   
@@ -61,9 +63,9 @@ def boise():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    boise_score = session.query.(
+    boise_score = session.query(
         Boise.date,
-        Boise.overall_aqi_value,
+        Boise.Overall_AQI_Value,
         Boise.main_pollutant,
         Boise.site_name,
         Boise.site_id,
@@ -305,6 +307,28 @@ def indianapolis():
     indianapolis_aqi = list(np.ravel(indianapolis_score))
 
     return jsonify(indianapolis_aqi)
+
+@app.route("/api/v1.0/linechartboise")
+def passengers():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    """Return a list of passenger data including the name, age, and sex of each passenger"""
+    # Query all passengers
+    boise_bc = session.query(Boise.date, Boise.lat, Boise.lon).all()
+
+    session.close()
+
+    # Create a dictionary from the row data and append to a list of all_passengers
+    all_boise_bc = []
+    for date, lat, lon in boise_bc:
+        boise_dict = {}
+        boise_dict["date"] = date
+        boise_dict["lat"] = lat
+        boise_dict["lon"] = lon
+        all_boise_bc.append(boise_bc)
+
+    return jsonify(all_boise_bc)
 
 if __name__ == '__main__':
     app.run(debug=True)
