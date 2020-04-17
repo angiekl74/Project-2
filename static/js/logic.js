@@ -1,6 +1,6 @@
 // Creating map object
 var map = L.map("map", {
-  center: [33.8283, -98.5795],
+  center: [38.8283, -98.5795],
   zoom: 4
 });
 // Load in geojson data
@@ -36,7 +36,7 @@ d3.json(statesAQI, function(data) {
     scale: ["rgb(254,255,195)", "rgb(88,180,177)", "rgb(29,38,127)"],
 
     // Number of breaks in step range
-    steps: 15,
+    steps: 10,
 
     // q for quartile, e for equidistant, k for k-means
     mode: "q",
@@ -49,7 +49,7 @@ d3.json(statesAQI, function(data) {
 
     // Binding a pop-up to each layer
     onEachFeature: function(feature, layer) {
-      layer.bindPopup(feature.properties.City+", "+feature.properties.name + 
+      layer.bindPopup(feature.properties.City+", "+feature.properties.State + 
       "<br>AQI Average: " + feature.properties.AQI + "<br>Population: " + feature.properties.Population + 
       "<br>Shelter in Place Ordinance: " + formatDate(new Date(feature.properties.ShelterinPlaceOrdinance)));
     }
