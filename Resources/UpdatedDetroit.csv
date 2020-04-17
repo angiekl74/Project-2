@@ -1,4 +1,4 @@
-,date,overall_aqi_value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
+,date,Overall AQI Value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
 0,2020-01-01,55,PM2.5,TRINITY ST MARKS (GHIB),26-163-0099,AirNow,,29,,,55,,42.3314,-83.0458,Detroit,2020-03-24,672662
 1,2020-01-02,49,PM2.5,PROPERTY OWNED BY DEARBORN PUBLIC SCHOOLS,26-163-0033,AirNow,,26,,,49,,42.3314,-83.0458,Detroit,2020-03-24,672662
 2,2020-01-03,58,PM2.5,TRINITY ST MARKS (GHIB),26-163-0099,AirNow,,19,,,58,,42.3314,-83.0458,Detroit,2020-03-24,672662

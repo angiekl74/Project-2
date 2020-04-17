@@ -1,4 +1,4 @@
-,date,overall_aqi_value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
+,date,Overall AQI Value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
 0,2020-01-01,24,PM2.5,Smoky Row Near Road,39-049-0038,AQS,0,.,0,.,24,10,39.9612,-82.9988,Columbus,2020-03-23,892533
 1,2020-01-02,17,PM2.5,Smoky Row Near Road,39-049-0038,AQS,1,.,0,.,17,15,39.9612,-82.9988,Columbus,2020-03-23,892533
 2,2020-01-03,23,NO2,Fairgrounds,39-049-0034,AQS,2,.,0,.,18,23,39.9612,-82.9988,Columbus,2020-03-23,892533

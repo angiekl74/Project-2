@@ -1,4 +1,4 @@
-,date,Overall_AQI_Value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
+,date,overall_aqi_value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
 0,2020-01-01,29,Ozone,Portland,41-051-0080,AirNow,,29,,,16,,45.5051,-122.675,Portland,2020-03-23,653115
 1,2020-01-02,28,Ozone,Portland,41-051-0080,AirNow,,28,,,20,,45.5051,-122.675,Portland,2020-03-23,653115
 2,2020-01-03,35,Ozone,Portland,41-051-0080,AirNow,,35,,,20,,45.5051,-122.675,Portland,2020-03-23,653115

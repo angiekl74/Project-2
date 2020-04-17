@@ -1,4 +1,4 @@
-,date,overall_aqi_value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
+,date,Overall AQI Value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
 0,2020-01-01,35,PM2.5,MILWAUKEE - SIXTEENTH ST. HEALTH CENTER,55-079-0010,AirNow,,27,,,35,,43.0389,-87.9065,Milwaukee,2020-03-25,592025
 1,2020-01-02,29,PM2.5,WAUKESHA - CLEVELAND AVE,55-133-0027,AirNow,,24,,,29,,43.0389,-87.9065,Milwaukee,2020-03-25,592025
 2,2020-01-03,43,PM2.5,MILWAUKEE - SIXTEENTH ST. HEALTH CENTER,55-079-0010,AirNow,,26,,,43,,43.0389,-87.9065,Milwaukee,2020-03-25,592025

@@ -1,4 +1,4 @@
-,date,Overall_AQI_Value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
+,date,overall_aqi_value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
 0,2020-01-01,34,Ozone,SEATTLE - BEACON HILL,53-033-0080,AirNow,,34,,,26,,47.6062,-122.3321,Seattle,2020-03-23,744955
 1,2020-01-02,31,Ozone,SEATTLE - BEACON HILL,53-033-0080,AirNow,,31,,,30,,47.6062,-122.3321,Seattle,2020-03-23,744955
 2,2020-01-03,37,Ozone,SEATTLE - BEACON HILL,53-033-0080,AirNow,,37,,,36,,47.6062,-122.3321,Seattle,2020-03-23,744955

@@ -1,4 +1,4 @@
-,date,Overall_AQI_Value,main_pollutant,site_name,Lat ,Lon,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
+,date,overall_aqi_value,main_pollutant,site_name,Lat ,Lon,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
 0,2020-01-01,63,PM2.5,Boise - White Pine Elementary,43.615,-116.2023,16-015-0001,AirNow,,28,,,63,,43.615,-116.2023,Boise,2020-03-25,228790
 1,2020-01-02,62,PM2.5,Boise - White Pine Elementary,43.615,-116.2023,16-015-0001,AirNow,,23,,,62,,43.615,-116.2023,Boise,2020-03-25,228790
 2,2020-01-03,52,PM2.5,Boise - White Pine Elementary,43.615,-116.2023,16-015-0001,AirNow,,26,,,52,,43.615,-116.2023,Boise,2020-03-25,228790

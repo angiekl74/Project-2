@@ -1,4 +1,4 @@
-,date,Overall_AQI_Value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
+,date,overall_aqi_value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
 0,2020-01-01,84,PM2.5,Chalmette Vista,22-087-0007,AQS,6,34,37,49,84,36,29.9511,-90.0715,New_Orleans,2020-03-23,391006
 1,2020-01-02,51,PM2.5,Chalmette Vista,22-087-0007,AQS,5,31,50,19,51,13,29.9511,-90.0715,New_Orleans,2020-03-23,391006
 2,2020-01-03,36,SO2,Norco,22-089-0006,AQS,6,35,36,4,10,20,29.9511,-90.0715,New_Orleans,2020-03-23,391006
