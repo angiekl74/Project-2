@@ -1,4 +1,4 @@
-,date,Overall_AQI_Value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
+,date,overall_aqi_value,main_pollutant,site_name,site_id,source_aqi,co,ozone,so2,pm10,pm25,no2,lat,lon,city_name,state_ordinance,population
 0,2020-01-01,102,PM2.5,Long Beach-Route 710 Near Road,06-037-4008,AirNow,,44,,,102,,34.0522,-118.2437,Los_Angeles,2020-03-23,3990456
 1,2020-01-02,66,PM2.5,Long Beach-Route 710 Near Road,06-037-4008,AirNow,,40,,,66,,34.0522,-118.2437,Los_Angeles,2020-03-23,3990456
 2,2020-01-03,87,PM2.5,Long Beach-Route 710 Near Road,06-037-4008,AirNow,,41,,,87,,34.0522,-118.2437,Los_Angeles,2020-03-23,3990456
