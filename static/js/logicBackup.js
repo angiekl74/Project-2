@@ -20,11 +20,11 @@ var aqiAvg = [];
 
 
 // Grab data with d3
-d3.csv(shelter, function(info) {
-  var city = info;
+d3.json(states, function(data) {
   
-  d3.json(states, function(data) {
-    // console.log(city)
+  d3.csv(shelter, function(info) {
+    var city = info;
+    console.log(city)
     for(i = 0; i < city.length; i++){
       aqiAvg.push(parseFloat(city[i].AQI))
       // console.log((city[i].AQI))
