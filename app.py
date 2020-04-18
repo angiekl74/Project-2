@@ -7,14 +7,20 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 from flask import Flask, jsonify
-# from flask_cors import CORS
+from flask import Flask
+from config import password
+
+from flask_cors import CORS
 
 
 #################################################
 # Database Setup
 #################################################
 
-engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
+# engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
+engine = create_engine(f"postgresql://postgres:{password}@localhost:5432/Project2AQI")
+conn = engine.connect()
+# engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
 
 Base = automap_base()
 # reflect the tables
@@ -35,7 +41,7 @@ Indianapolis = Base.classes.indianapolis
 # Flask Setup
 #################################################
 app = Flask(__name__)
-# CORS(app)
+cors = CORS(app)
 
 # Flask Routes
 #################################################
