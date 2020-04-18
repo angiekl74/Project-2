@@ -7,10 +7,9 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 from flask import Flask, jsonify
-from flask import Flask
-from config import password
-
 from flask_cors import CORS
+
+# from config import password
 
 
 #################################################
@@ -41,7 +40,7 @@ Indianapolis = Base.classes.indianapolis
 # Flask Setup
 #################################################
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app)
 
 # Flask Routes
 #################################################
