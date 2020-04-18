@@ -18,6 +18,7 @@ from flask_cors import CORS
 
 engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
 # engine = create_engine(f"postgresql://postgres:{password}@localhost:5432/Project2AQI")
+
 conn = engine.connect()
 
 Base = automap_base()

@@ -12,27 +12,24 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <form>
-          <div class="form-group">
-            <label for="patient-form">Filter Patient Data by Blood Type</label>
-            <input class="form-control" id="patient-form-input" name="patient-form" type="text" placeholder="AB-">
-          </div>
-          <button id="button" type="button" class="btn btn-default">Enter</button>
-        </form>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Filtered Data Summary</h1>
-        <ul class="summary"></ul>
-      </div>
-    </div>
-  </div>
-</body>
-<script src="data.js"></script>
-<script src="app.js"></script>
+    <h2>Summary </h2>
+    <select id="selDataset" >
+        <option value="boise">Boise</option>
+        <option value="columbus">Columbus</option>
+        <option value="detroit">Detroit</option>
+        <option value="milwaukee">Milwaukee</option>
+        <option value="la">LA</option>
+        <option value="neworleans">New Orleans</option>
+        <option value="ny">New York</option>
+        <option value="portland">Portland</option>
+        <option value="seattle">Seattle</option>
+        <option value="indianapolis">Indianapolis</option>
+    </select>
 
+    <div id="summary"></div>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="math.js"></script>
+		
 </html>
+
