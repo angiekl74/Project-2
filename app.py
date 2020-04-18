@@ -12,6 +12,8 @@ from config import password
 
 from flask_cors import CORS
 
+# from config import password
+
 
 #################################################
 # Database Setup
@@ -41,7 +43,7 @@ Indianapolis = Base.classes.indianapolis
 # Flask Setup
 #################################################
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app)
 
 # Flask Routes
 #################################################
@@ -97,20 +99,7 @@ def boise():
     
     session.close()
 
-    # boise_aqi = list(np.ravel(boise_score))
-
-    # return jsonify(boise_aqi)
-
-    #  # Create our session (link) from Python to the DB
-    # session = Session(engine)
-
-    # """Return a list of passenger data including the name, age, and sex of each passenger"""
-    # # Query all passengers
-    # boise_bc = session.query(Boise.date, Boise.lat, Boise.lon).all()
-
-    # session.close()
-
-    # Create a dictionary from the row data and append to a list of all_passengers
+    # Create a dictionary to hold boise data
     boise_aqi = []
     for date, overall_aqi_value, main_pollutant, site_name, site_id, source_aqi, lat, lon, city_name, state_ordinance, population in boise_data:
         boise_dict = {}
