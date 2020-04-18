@@ -1,79 +1,111 @@
-d3.csv("Resources/UpdatedPortland.csv").then(function(data) {
-    // console.log(data)
-    var date = [];
-    var city = [];
-    var aqi = [];
-    var state_ordinance =[];
-    var city_population = [];
-    
-    for (i=0; i<data.length; i++) {
-        date.push(data[i].date);
-        city.push(data[i].city_name);
-        aqi.push(data[i].Overall_AQI_Value);    
-        city_population.push(data[i].population) ;
-        state_ordinance.push(data[i].state_ordinance) 
-    console.log(date, city, aqi,city_population),state_ordinace);  
+d3.select('#selDataset').on("change", getSummary);
+
+function getSummary() {
+    // April 17 - pulling data from Flask url
+    var state = d3.select("#selDataset").node().value;
+    if (state === "boise") {
+        var url = "http://127.0.0.1:5000/api/v1.0/boise"
+    }
+    if (state === "columbus") {
+        var url = "http://127.0.0.1:5000/api/v1.0/columbus"
+    }
+    if (state === "detroit") {
+        var url = "http://127.0.0.1:5000/api/v1.0/detroit"
+    }
+    if (state === "milwaukee") {
+        var url = "http://127.0.0.1:5000/api/v1.0/milwaukee"
+    }
+    if (state === "la") {
+        var url = "http://127.0.0.1:5000/api/v1.0/la"
+    }
+    if (state === "neworleans") {
+        var url = "http://127.0.0.1:5000/api/v1.0/neworleans"
+    }
+    if (state === "ny") {
+        var url = "http://127.0.0.1:5000/api/v1.0/ny"
+    }
+    if (state === "portland") {
+        var url = "http://127.0.0.1:5000/api/v1.0/portland"
+    }
+    if (state === "seattle") {
+        var url = "http://127.0.0.1:5000/api/v1.0/seattle"
+    }
+    if (state === "indianapolis") {
+        var url = "http://127.0.0.1:5000/api/v1.0/indianapolis"
     }
 
-    // Sort date
-    var newDate = date.sort(function(a, b) {
-        // convert date object into number to resolve issue in typescript
-        return  +new Date(a.date) - +new Date(b.date);
-      })
+    d3.json(url).then(function (data) {
+        // console.log(data)
+        var chosenCityDate = [];
+        var chosenCityAqi = [];
+        var chosenCityName = [];
+        var chosenCityShelterDate = [];
+        var chosenCityPopulation = [];
+
     
-    // Just take 17 days PRE and POST shelter-in-place date for the city
-    var dateThisYear = newDate.slice(63, 101)
-    var aqiThisYear = aqi.slice(63,101)
-    var date
-    console.log(dateThisYear, aqiThisYear)
-// Assign the data from `data.js` to a descriptive variable
+        for (i=0; i<data.length; i++) {
+            chosenCityName.push(data[i].city_name);
+            chosenCityShelterDate.push(data[i].state_ordinance)
+            chosenCityPopulation.push(data[i].population); 
+            chosenCityAqi.push(data[i].aqi_value);      
+            chosenCityDate.push(data[i].date);
+            
+            
 
-
-// Select the button
-    var button = d3.select("#button");
-
-    button.on("click", function() {
-
-    // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#patient-form-input");
-
-    // Get the value property of the input element
-    var inputValue = inputElement.property("value");
-
-    console.log(inputValue);
-    console.log(people);
-
-    var pre_data = date.filter(date => data.date === inputValue);
-
-    console.log(filteredData);
-
-    // BONUS: Calculate summary statistics for the age field of the filtered data
-
-    // First, create an array with just the age values
-    #var ages = filteredData.map(person => person.age);
-
-    // Next, use math.js to calculate the mean, median, mode, var, and std of the ages
-    var aqi_mean = math.mean(aqi);
+        var chosenCityName2 = chosenCityName[0]
+        var chosenCityPopulation2 = chosenCityPopulation[0]
+        var chosenCityShelterDate2 = new Date(chosenCityShelterDate[0]).toISOString().slice(0, 10);
     
+        // Sort and format date
+        var newDate = chosenCityDate.sort(function(a, b) {
+            return  +new Date(a.date) - +new Date(b.date);
+        })
+        var newDate2 = [];
+        for (i=0; i<newDate.length; i++) {  
+            newDate2.push(new Date(newDate[i]).toISOString().slice(5,10));
+        }
+        // // filter date by 
+        // var startDate = chosenCityShelterDate;
+            
 
-    // Then, select the unordered list element by class name
-    var list = d3.select(".summary");
+        // var postShelterAqi = chosenCityDate.filter(
+        //         function (a)
+        //         {
+        //             return (a.chosenCityAqi) > startDate;
+        //         });
+        // console.log(postShelterAqi);
+        
+        // Just take 17 days PRE and POST shelter-in-place date for the city
+        //var postShelterAqi = chosenCityAqi.filter(chosenCityAqi => chosenCityAqi >= chosenCityShelterDate);
+        var dateThisYear = newDate2.slice(63, 100)
+        var aqiThisYear = chosenCityAqi.slice(63,100)
+        var datePreShelter = newDate2.slice(0, 62)
+        var aqiPreShelter = chosenCityAqi.slice(0,62)
+        // console.log(chosenCityAqi)
+        // var meanAqiPost = math.mean(aqiThisYear)
+        // var meanAqiPre = math.mean(aqiPreShelter)
+        // console.log(dateThisYear, math.sum(aqiThisYear),chosenCityName2)
+        // Then, select the unordered list element by class name
+        var list = d3.select("#summary");
 
-    // remove any children from the list
-    list.html("");
+        // remove any children from the list
+        list.html("");
 
-    // append stats to the list
-    list.append("li").text(`City: ${city}`);
-    list.append("li").text(`Population: ${population}`);
-    list.append("li").text(`State Ordinance: ${state_ordinace}`);
-    list.append("li").text(`: ${standardDeviation}`);
-    list.append("li").text(`Pre_Shelter_AQI Mean: ${aqi_mean_pre}`);
-    list.append("li").text(`Post_Shelter_AQI Mean: ${aqi_mean_post}`);
-    // var stats = [["mean", mean], ["median", median], ["mode", mode]];
-    // stats.forEach(stat => list.append("li").text(`${stat[0]}: ${stat[1]}`));
+        // append stats to the list
+        list.append("li").text(`City: ${chosenCityName2}`);
+        list.append("li").text(`Population: ${chosenCityPopulation2}`);
+        list.append("li").text(`State Ordinance: ${chosenCityShelterDate2}`);
+        list.append("li").text(`AQI Mean: ${math.mean(chosenCityAqi)}`);
+        // list.append("li").text(`: ${standardDeviation}`);
+        list.append("li").text(`Post_Shelter_AQI Mean: ${math.mean(aqiThisYear)}`);
+        // list.append("li").text(`Pre_Shelter_AQI Mean: ${meanAqiPre}`);
+            
+        
 
-    // var stats = {Mean: mean, Median: median, Mode: mode, Variance: variance};
-    // Object.entries(stats).forEach(([stat, value]) => list.append("li").text(`${stat}: ${value}`));
+    }
     });
+}
+
+
 
 
