@@ -3,39 +3,42 @@ d3.select('#selDataset').on("change", getPlot);
 function getPlot() {
     // April 17 - pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
-    if (state === "boise") {
-        var url = "http://127.0.0.1:5000/api/v1.0/boise"
-    }
-    if (state === "columbus") {
-        var url = "http://127.0.0.1:5000/api/v1.0/columbus"
-    }
-    if (state === "detroit") {
-        var url = "http://127.0.0.1:5000/api/v1.0/detroit"
-    }
-    if (state === "milwaukee") {
-        var url = "http://127.0.0.1:5000/api/v1.0/milwaukee"
-    }
-    if (state === "la") {
-        var url = "http://127.0.0.1:5000/api/v1.0/la"
-    }
-    if (state === "neworleans") {
-        var url = "http://127.0.0.1:5000/api/v1.0/neworleans"
-    }
-    if (state === "ny") {
-        var url = "http://127.0.0.1:5000/api/v1.0/ny"
-    }
-    if (state === "portland") {
-        var url = "http://127.0.0.1:5000/api/v1.0/portland"
-    }
-    if (state === "seattle") {
-        var url = "http://127.0.0.1:5000/api/v1.0/seattle"
-    }
-    if (state === "indianapolis") {
-        var url = "http://127.0.0.1:5000/api/v1.0/indianapolis"
-    }
+    var url2="http://127.0.0.1:5000/api/v1.0/"+ state
+    // if (state === "boise") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/boise"
+    // }
+    // if (state === "columbus") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/columbus"
+    // }
+    // if (state === "detroit") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/detroit"
+    // }
+    // if (state === "milwaukee") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/milwaukee"
+    // }
+    // if (state === "la") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/la"
+    // }
+    // if (state === "neworleans") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/neworleans"
+    // }
+    // if (state === "ny") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/ny"
+    // }
+    // if (state === "portland") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/portland"
+    // }
+    // if (state === "seattle") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/seattle"
+    // }
+    // if (state === "indianapolis") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/indianapolis"
+    // }
 
-    d3.json(url).then(function (data) {
-        console.log(data)
+    d3.json(url2).then(function (data) {
+        // console.log(data)
+
+        // set variables to hold selected city information
         var chosenCityDate = [];
         var chosenCityAqi = [];
         var chosenCityName = [];
@@ -59,7 +62,7 @@ function getPlot() {
             newDate2.push(new Date(newDate[i]).toISOString().slice(5,10));
         }
         
-        // Just take 17 days PRE and POST shelter-in-place date for the city
+        // Filter 17 days PRE and POST shelter-in-place date for the city to create chart
         var dateThisYear = newDate2.slice(63, 100)
         var aqiThisYear = chosenCityAqi.slice(63,100)
         // console.log(dateThisYear, aqiThisYear)
@@ -173,7 +176,7 @@ function getPlot() {
         };
         myChart.setOption(option);
 
-    }
+        }
     })
 }
 

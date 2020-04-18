@@ -6,7 +6,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from flask import Flask
 from config import password
 
@@ -48,23 +48,27 @@ cors = CORS(app)
 
 @app.route("/")
 def welcome():
-    """List all available aqi routes."""
-    return (
-        f"Welcome to the Air Quality Index Data!<br/>"
-        f"Available Routes:<br/>"
-        f"<a href='/api/v1.0/boise'> Air Quality Index data Boise</a><br/>"
-        f"<a href='/api/v1.0/columbus'> Air Quality Index data Columbus</a><br/>"
-        f"<a href='/api/v1.0/detroit'> Air Quality Index data Detroit</a><br/>"
-        f"<a href='/api/v1.0/milwaukee'> Air Quality Index data Milwaukee</a><br/>"
-        f"<a href='/api/v1.0/la'> Air Quality Index data Los Angeles</a><br/>"
-        f"<a href='/api/v1.0/neworleans'> Air Quality Index data New Orleans</a><br/>"
-        f"<a href='/api/v1.0/ny'> Air Quality Index data New York City</a><br/>"
-        f"<a href='/api/v1.0/portland'> Air Quality Index data Portland</a><br/>"
-        f"<a href='/api/v1.0/seattle'> Air Quality Index data Seattle</a><br/>"
-        f"<a href='/api/v1.0/indianapolis'> Air Quality Index data Indianapolis</a><br/>"
-        f"<a href='/api/v1.0/linechartboise'> Air Quality Index data linechartboise</a><br/>"
 
-    )
+    # AO - Testing Landing page
+    return render_template("index2.html")
+    
+    # """List all available aqi routes."""
+    # return (
+    #     f"Welcome to the Air Quality Index Data!<br/>"
+    #     f"Available Routes:<br/>"
+    #     f"<a href='/api/v1.0/boise'> Air Quality Index data Boise</a><br/>"
+    #     f"<a href='/api/v1.0/columbus'> Air Quality Index data Columbus</a><br/>"
+    #     f"<a href='/api/v1.0/detroit'> Air Quality Index data Detroit</a><br/>"
+    #     f"<a href='/api/v1.0/milwaukee'> Air Quality Index data Milwaukee</a><br/>"
+    #     f"<a href='/api/v1.0/la'> Air Quality Index data Los Angeles</a><br/>"
+    #     f"<a href='/api/v1.0/neworleans'> Air Quality Index data New Orleans</a><br/>"
+    #     f"<a href='/api/v1.0/ny'> Air Quality Index data New York City</a><br/>"
+    #     f"<a href='/api/v1.0/portland'> Air Quality Index data Portland</a><br/>"
+    #     f"<a href='/api/v1.0/seattle'> Air Quality Index data Seattle</a><br/>"
+    #     f"<a href='/api/v1.0/indianapolis'> Air Quality Index data Indianapolis</a><br/>"
+    #     f"<a href='/api/v1.0/linechartboise'> Air Quality Index data linechartboise</a><br/>"
+
+    # )
 
 @app.route("/api/v1.0/boise")   
 def boise():
