@@ -9,6 +9,7 @@ from sqlalchemy import create_engine, func
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask import request
+from flask import render_template
 
 # from config import password
 
@@ -46,7 +47,20 @@ CORS(app)
 # Flask Routes
 #################################################
 
+# Route to render index.html
 @app.route("/")
+def home():
+    # Return template and data
+    return render_template("index.html")
+
+
+@app.route("/<city_name>")
+def city(city_name):
+    return render_template("dashboard.html", urlOne= city_name)
+    #return render_template("index.html", mars=mars_db)
+
+
+@app.route("/api")
 def welcome():
     """List all available aqi routes."""
     return (

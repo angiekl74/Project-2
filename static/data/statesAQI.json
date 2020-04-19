@@ -15125,7 +15125,7 @@
         "City": "Cheyenne",
         "AQI": 40.06,
         "Population": 63957,
-        "ShelterinPlaceOrdinance": 1585353600000
+        "ShelterinPlaceOrdinance": null
       },
       "geometry": {
         "type": "Polygon",
