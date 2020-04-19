@@ -6,9 +6,10 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
-from flask import Flask, jsonify, render_template
-from flask import Flask
-from config import password
+from flask import Flask, jsonify
+from flask_cors import CORS
+from flask import request
+from flask import render_template
 
 from flask_cors import CORS
 # from config import password
@@ -18,10 +19,10 @@ from flask_cors import CORS
 # Database Setup
 #################################################
 
-# engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
-engine = create_engine(f"postgresql://postgres:{password}@localhost:5432/Project2AQI")
+engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
+# engine = create_engine(f"postgresql://postgres:{password}@localhost:5432/Project2AQI")
+
 conn = engine.connect()
-# engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
 
 Base = automap_base()
 # reflect the tables
@@ -47,7 +48,20 @@ CORS(app)
 # Flask Routes
 #################################################
 
+# Route to render index.html
 @app.route("/")
+def home():
+    # Return template and data
+    return render_template("index.html")
+
+
+@app.route("/<city_name>")
+def city(city_name):
+    return render_template("dashboard.html", urlOne= city_name)
+    #return render_template("index.html", mars=mars_db)
+
+
+@app.route("/api")
 def welcome():
 
     # AO - Testing Landing page
