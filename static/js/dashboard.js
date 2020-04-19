@@ -3,38 +3,8 @@ d3.select('#selDataset').on("change", updateGraphs);
 function getSpline() {
     // April 17 - pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
-    if (state === "boise") {
-        var url = "http://127.0.0.1:5000/api/v1.0/boise"
-    }
-    if (state === "columbus") {
-        var url = "http://127.0.0.1:5000/api/v1.0/columbus"
-    }
-    if (state === "detroit") {
-        var url = "http://127.0.0.1:5000/api/v1.0/detroit"
-    }
-    if (state === "milwaukee") {
-        var url = "http://127.0.0.1:5000/api/v1.0/milwaukee"
-    }
-    if (state === "la") {
-        var url = "http://127.0.0.1:5000/api/v1.0/la"
-    }
-    if (state === "neworleans") {
-        var url = "http://127.0.0.1:5000/api/v1.0/neworleans"
-    }
-    if (state === "ny") {
-        var url = "http://127.0.0.1:5000/api/v1.0/ny"
-    }
-    if (state === "portland") {
-        var url = "http://127.0.0.1:5000/api/v1.0/portland"
-    }
-    if (state === "seattle") {
-        var url = "http://127.0.0.1:5000/api/v1.0/seattle"
-    }
-    if (state === "indianapolis") {
-        var url = "http://127.0.0.1:5000/api/v1.0/indianapolis"
-    }
+    var url2="http://127.0.0.1:5000/api/v1.0/"+ state
 
-    
     // Use D3 fetch to read the JSON file
     d3.json(url).then((importedData) => {
         
@@ -150,36 +120,38 @@ getSpline();
 function getPlot() {
     // April 17 - pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
-    if (state === "boise") {
-        var url = "http://127.0.0.1:5000/api/v1.0/boise"
-    }
-    if (state === "columbus") {
-        var url = "http://127.0.0.1:5000/api/v1.0/columbus"
-    }
-    if (state === "detroit") {
-        var url = "http://127.0.0.1:5000/api/v1.0/detroit"
-    }
-    if (state === "milwaukee") {
-        var url = "http://127.0.0.1:5000/api/v1.0/milwaukee"
-    }
-    if (state === "la") {
-        var url = "http://127.0.0.1:5000/api/v1.0/la"
-    }
-    if (state === "neworleans") {
-        var url = "http://127.0.0.1:5000/api/v1.0/neworleans"
-    }
-    if (state === "ny") {
-        var url = "http://127.0.0.1:5000/api/v1.0/ny"
-    }
-    if (state === "portland") {
-        var url = "http://127.0.0.1:5000/api/v1.0/portland"
-    }
-    if (state === "seattle") {
-        var url = "http://127.0.0.1:5000/api/v1.0/seattle"
-    }
-    if (state === "indianapolis") {
-        var url = "http://127.0.0.1:5000/api/v1.0/indianapolis"
-    }
+    var url2="http://127.0.0.1:5000/api/v1.0/"+ state
+    // var state = d3.select("#selDataset").node().value;
+    // if (state === "boise") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/boise"
+    // }
+    // if (state === "columbus") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/columbus"
+    // }
+    // if (state === "detroit") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/detroit"
+    // }
+    // if (state === "milwaukee") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/milwaukee"
+    // }
+    // if (state === "la") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/la"
+    // }
+    // if (state === "neworleans") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/neworleans"
+    // }
+    // if (state === "ny") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/ny"
+    // }
+    // if (state === "portland") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/portland"
+    // }
+    // if (state === "seattle") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/seattle"
+    // }
+    // if (state === "indianapolis") {
+    //     var url = "http://127.0.0.1:5000/api/v1.0/indianapolis"
+    // }
 
     d3.json(url).then(function (data) {
         // console.log(data)
