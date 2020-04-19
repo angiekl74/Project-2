@@ -90,7 +90,8 @@ function getPlot() {
                     data: dateThisYear.map(function (item) {
                         return item})
             },          
-            yAxis: { 
+            yAxis: {
+                
                     splitLine: {
                     show: false             // ??? AO - splitLine - not sure what this does
                         },
@@ -157,10 +158,23 @@ function getPlot() {
                         offset: [30, -30]
                     }
                     },
+                    
                 markLine: {
                     silent: true,
                     data: [{
-                        yAxis: 50
+                        silent: true,
+                        symbol: ["", ""],
+                        yAxis: 50,
+                        label: {
+                            "show": true,
+                            // "position": "end",
+                            "color": "blue",
+                            "formatter": "mark line"},
+                        lineStyle: {
+                                "color": "#68d2e0",
+                                "width": 3,
+                                "type": "dot"
+                            }    
                     }, {
                         yAxis: 100
                     }, {

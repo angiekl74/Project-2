@@ -11,7 +11,6 @@ from flask import Flask
 from config import password
 
 from flask_cors import CORS
-
 # from config import password
 
 
