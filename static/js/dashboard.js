@@ -28,7 +28,10 @@ function getSpline() {
         var chart = new CanvasJS.Chart("chartContainer", {
             exportEnabled: true,
             title :{
-                text: `${city[0]} 2019 vs. 2020 AQI Data`
+                text: `${city[0]} 2019 vs. 2020`,
+                fontFamily: "ariel",
+                fontSize: 30,
+                fontWeight: "bold"
             },
             axisY: {
                 includeZero: false,
@@ -158,8 +161,13 @@ function getPlot() {
         var chart = document.getElementById('chart');
         var myChart = echarts.init(chart);
         var option = {
-            title: { text: `${chosenCityName2} Daily AQI (3/5/2020 - 4/10/2020)` ,
-                    textAlign: 'auto'
+            title: { 
+                    text: `${chosenCityName2} Daily AQI`, // (3/5/2020 - 4/10/2020)` ,
+                    textStyle: {
+                        fontSize: 30,
+                        fontFamily: "ariel"
+                    },
+                    x: "center"
             },
             tooltip: { 
                     trigger: 'axis'
