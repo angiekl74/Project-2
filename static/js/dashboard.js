@@ -62,13 +62,13 @@ function getSummary() {
         // list.append("li").text(`State Ordinance: ${chosenCityShelterDate2}`);
         // list.append("li").text(`Pre_Shelter_AQI Mean: ${round_meanAqiPre}`);
         // list.append("li").text(`Post_Shelter_AQI Mean: ${round_meanAqiPost}`);
-    })
+    
 }
 
 function getPlot() {
     // April 17 - pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
-    var url="http://127.0.0.1:5000/api/v1.0/"+ state
+    var url="http://127.0.0.1:5000/api/v1.1/"+ state
 
     d3.json(url).then(function (data) {
         // console.log(data)
@@ -219,16 +219,18 @@ function getPlot() {
             
         };
         myChart.setOption(option);
+
     }
+    // getSpline(data)
     })
 }
 
 function getSpline() {
     // April 17 - pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
-    var url="http://127.0.0.1:5000/api/v1.0/"+ state
+    var url="http://127.0.0.1:5000/api/v1.1/"+ state
 
-    // Use D3 fetch to read the JSON file
+    // // Use D3 fetch to read the JSON file
     d3.json(url).then((importedData) => {
         
         // Pull in the data
@@ -336,14 +338,15 @@ function getSpline() {
 
             updateChart(dataLength); 
             setInterval(function(){ updateChart() }, updateInterval);  
-            getPlot();      
+            // getPlot();      
     })
+
 }
 
 function updateGraphs() {
     getSummary();
     getPlot();
-    getSpline();
+    // getSpline();
 }
 
 updateGraphs();
