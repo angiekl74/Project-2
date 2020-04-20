@@ -1,6 +1,6 @@
 d3.select('#selDataset').on("change", getSummary);
 function getSummary() {
-    // April 17 - pulling data from Flask url
+    // pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
     if (state === "boise") {
         var url = "http://127.0.0.1:5000/api/v1.0/boise"
@@ -58,33 +58,25 @@ function getSummary() {
         for (i=0; i<newDate.length; i++) {  
             newDate2.push(new Date(newDate[i]).toISOString().slice(5,10));
         }
-        // // filter date by 
-        // var startDate = chosenCityShelterDate;
-        //     var postShelterAqi = chosenCityDate.filter(
-        //         function (a)
-        //         {
-        //             return (a.chosenCityAqi) > startDate;
-        //         });
-        // console.log(postShelterAqi);
-        // Just take 17 days PRE and POST shelter-in-place date for the city
-        var postShelterAqi = chosenCityAqi.filter(chosenCityAqi => chosenCityAqi >= chosenCityShelterDate);
-        var datePreShelter = newDate2.slice(63, 83)
-        var aqiPreShelter = chosenCityAqi.slice(63,83)
-        var datePostShelter = newDate2.slice(84, 100)
-        var aqiPostShelter = chosenCityAqi.slice(84,100)
         
-        var meanAqiPost = math.mean(aqiPostShelter)
-        var meanAqiPre = math.mean(aqiPreShelter)
-        // console.log(dateThisYear, math.sum(aqiThisYear),chosenCityName2)
+        //  PRE and POST shelter-in-place data for the city
+        var postShelterAqi = data.filter(elementData => new Date(elementData.date) >= new Date(chosenCityShelterDate[0]));
+        var preShelterAqi = data.filter(elementData => new Date(elementData.date) <= new Date(chosenCityShelterDate[0]));
+        
+        // PRE and POST shelter-in=place date
+        var meanAqiPost = math.mean(postShelterAqi.map(aqidata => aqidata.aqi_value));
+        var meanAqiPre = math.mean(preShelterAqi.map(aqidata => aqidata.aqi_value))
+        var round_meanAqiPost = math.round(meanAqiPost,2)
+        var round_meanAqiPre = math.round(meanAqiPre,2)
         // Then, select the unordered list element by class name
         var list = d3.select("#summary");
-        // remove any children from the list
+        // remove any data from the list
         list.html("");
         // append stats to the list
         list.append("li").text(`City: ${chosenCityName2}`);
         list.append("li").text(`Population: ${chosenCityPopulation2}`);
         list.append("li").text(`State Ordinance: ${chosenCityShelterDate2}`);
-        list.append("li").text(`Post_Shelter_AQI Mean: ${meanAqiPost}`);
-        list.append("li").text(`Pre_Shelter_AQI Mean: ${meanAqiPre}`);
+        list.append("li").text(`Pre_Shelter_AQI Mean: ${round_meanAqiPre}`);
+        list.append("li").text(`Post_Shelter_AQI Mean: ${round_meanAqiPost}`);
     })
 }
