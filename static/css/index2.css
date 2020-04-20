@@ -1,3 +1,53 @@
+/* CHOROPLETH CSS START */
+#map,
+body,
+html {
+  height: 80%;
+  width: 100%;
+}
+
+.leaflet-popup-content {
+  text-align: center;
+}
+
+/* CSS from the Leaflet-Choropleth documentation */
+.legend {
+  padding: 6px 8px;
+  font: 12px Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #555;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.legend ul {
+  padding: 0;
+  margin: 0;
+  clear: both;
+  list-style-type: none;
+}
+
+.legend li {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+}
+
+.legend .min {
+  float: left;
+  padding-bottom: 5px;
+}
+
+.legend .max {
+  float: right;
+}
+
+h1 {
+  text-align: center;
+}
+/* CHOROPLETH CSS END */
 /* Overall container */
 .container-fluid {
   width: 100%;
@@ -14,15 +64,15 @@ html, body {
 }
 
 .navbar{
-    background-color: #116112 ;
+    background-color: rgb(117,187,178) ;
   }
 
 /* Logo */
 .navbar-brand{
-    background-color:#116112 ;
+    background-color:rgb(117,187,178);
     padding: 5px;
     font-size: 30px;
-    margin-left: 50px;
+    margin-left: 25px;
     font-family: monospace;
   }
 
@@ -45,72 +95,65 @@ html, body {
   /* border-top: 50px solid #DCDCDC; */
 }
 
-#dataR {
-  border-right: 50px solid #DCDCDC;
-}
-
-#dataL {
-  border-left: 50px solid #DCDCDC;
-}
-
-.data {
+/* Big section w/ image and paragraph */
+#mapbox {
   background-color: #ffff;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 0px;
   padding-bottom: 5px;
   border-top: 25px solid #DCDCDC;
-  border-left: 15px solid #DCDCDC;
-  border-right: 15px solid #DCDCDC;
+  border-left: 75px solid #DCDCDC;
+  border-right: 75px solid #DCDCDC;
+  border-bottom: 25px solid #DCDCDC;
 }
 
 /* Big section w/ image and paragraph */
-.bar_graph {
+#flagbox {
   background-color: #ffff;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 0px;
   padding-bottom: 5px;
   border-top: 25px solid #DCDCDC;
-  border-left: 50px solid #DCDCDC;
-  border-right: 15px solid #DCDCDC;
+  border-left: 75px solid #DCDCDC;
+  border-right: 75px solid #DCDCDC;
   border-bottom: 25px solid #DCDCDC;
 }
 
-/* Little section with 4 graphs */
-.line_graph {
-  background-color: #ffff;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 0px;
-  padding-bottom: 5px;
-  border-top: 25px solid #DCDCDC;
-  border-left: 15px solid #DCDCDC;
-  border-right: 50px solid #DCDCDC;
-  border-bottom: 25px solid #DCDCDC;
-}
+.vizBar {
+	padding: 6px 6px;
+	text-decoration: none;
+	float: center;}
+			
+.vizBar:hover {
+	background-color: rgb(200, 200, 200);
+	border-radius: 1px;}
+	
+#viz-img-boise {
+	width: 150px;
+	height: 120px;
+	float: center;
+	border-radius: 6px;}
 
-#pre {
-  color: #FC600A; 
-  text-align: right;
+.viz-img {
+	width: 150px;
+	height: 120px;
+	float: center;
+	border-radius: 6px;}
+	
+#comp-bar {
+	position:center;
+	text-decoration: none;}
+
+#comp-bar:hover {
+	background-color: rgb(226, 40, 15);
+	border-radius: 4px;}
+
+#comp-img {	
+	width:435px;
+	height:300px;
 }
-#post {
-  color: #347C98; 
-  text-align: right;
-}
-#shelterDate {
-  color: #8601AF; 
-  text-align: right;
-}
-#population {
-  color: #C21460;
-  text-align: right;
-}
-/* Summary/Visualization headers */
-/* h2 {
-  color: #116112 ;
-  text-align: right;
-} */
 
 /* Paragraphs */
 p {
