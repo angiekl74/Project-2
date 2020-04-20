@@ -36,7 +36,7 @@ function getSummary() {
         //  PRE and POST shelter-in-place data for the city
         var postShelterAqi = data.filter(elementData => new Date(elementData.date) >= new Date(chosenCityShelterDate[0]));
         var preShelterAqi = data.filter(elementData => new Date(elementData.date) <= new Date(chosenCityShelterDate[0]));
-        console.log(postShelterAqi.map(aqidata => aqidata.aqi_value));
+
         // PRE and POST shelter-in=place date
         var meanAqiPost = mean(postShelterAqi.map(aqidata => aqidata.aqi_value));
         var meanAqiPre = mean(preShelterAqi.map(aqidata => aqidata.aqi_value));
@@ -48,21 +48,7 @@ function getSummary() {
         document.getElementById("post").innerHTML = round_meanAqiPost;
         document.getElementById("shelterDate").innerHTML = chosenCityShelterDate2;
         document.getElementById("population").innerHTML = chosenCityPopulation2;
-
-        // var pre = d3.select("#pre");
-        // var pre = d3.select("#post");
-        // var pre = d3.select("#shelterDate");
-        // var pre = d3.select("#population");
-        
-        // // remove any data from the list
-        // list.html("");
-        // // append stats to the list
-        // list.append("li").text(`City: ${chosenCityName2}`);
-        // list.append("li").text(`Population: ${chosenCityPopulation2}`);
-        // list.append("li").text(`State Ordinance: ${chosenCityShelterDate2}`);
-        // list.append("li").text(`Pre_Shelter_AQI Mean: ${round_meanAqiPre}`);
-        // list.append("li").text(`Post_Shelter_AQI Mean: ${round_meanAqiPost}`);
-    
+    })
 }
 
 function getPlot() {
@@ -288,14 +274,11 @@ function getSpline() {
         
         var dateThisYear = date.slice(60, 99)
         var aqiThisYear = aqi.slice(60, 99)
-        // console.log(dateThisYear)
         // var dateLastYear = date.slice(160, 199)  // don't need this cause we need to use same date
         var aqiLastYear = aqi.slice(160, 199)
-        // console.log(dateLastYear)
         var val = 0;
         var val2 = 0
         var xVal = dateThisYear[0];
-        // this.console.log(xVal)
         var xVal2 = dateThisYear[0];
         var yVal = aqiLastYear[0];
         var yVal2 = aqiThisYear[0];
@@ -303,9 +286,7 @@ function getSpline() {
         var dataLength = 5; // number of dataPoints visible at any point
 
         var updateChart = function (count) {
-            count =  count || 1;
-            // console.log(count)
-            // count is number of times loop runs to generate random dataPoints.
+            count =  count || 1; // count is number of times loop runs to generate random dataPoints.
     
                 for (var j = 0; j < count; j++) {	
                     xVal = new Date(dateThisYear[val])

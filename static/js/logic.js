@@ -25,6 +25,10 @@ function formatDate(nowDate) {
 	return nowDate;
 }
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
 var geojson;
 var aqi;
 
@@ -54,8 +58,9 @@ d3.json(statesAQI, function(data) {
     // Binding a pop-up to each layer
     onEachFeature: function(feature, layer) {
       layer.bindPopup(feature.properties.City+", "+feature.properties.State + 
-      "<br>AQI Average: " + feature.properties.AQI + "<br>Population: " + feature.properties.Population + 
-      "<br>Shelter in Place Ordinance: " + formatDate(new Date(feature.properties.ShelterinPlaceOrdinance)));
+      "<br>Population: " + numberWithCommas(feature.properties.Population) + 
+      "<br>Shelter in Place Ordinance: " + formatDate(new Date(feature.properties.ShelterinPlaceOrdinance))+
+      "<br>Post Ordinance Average AQI: " + feature.properties.AQI);
     }
   }).addTo(map);
 
