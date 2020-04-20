@@ -74,7 +74,7 @@ function getSpline() {
         var xVal2 = dateThisYear[0];
         var yVal = aqiLastYear[0];
         var yVal2 = aqiThisYear[0];
-        var updateInterval = 1000;
+        var updateInterval = 250;
         var dataLength = 5; // number of dataPoints visible at any point
 
         var updateChart = function (count) {
@@ -239,14 +239,15 @@ function getPlot() {
                 data: aqiThisYear.map(function (item) {
                     return item}),   
                 markPoint: {
-                    data: [{value: `Ordinance Date: ${chosenCityShelterDate2}`, xAxis: (shelterDay.getDate()-4), yAxis: (aqiShelter)}],
+                    data: [{//value: `Ordinance Date: ${chosenCityShelterDate2}`, 
+                    xAxis: (shelterDay.getDate()-4), yAxis: (aqiShelter)}],
                     symbol: 'pin',
                     symbolSize: 40,
                     label:{
                         fontSize: 16,
                         fontStyle: "bold",
                         color: "black",
-                        offset: [10, -30]
+                        offset: [10, -10]
                     }
                     },
                 markLine: {
