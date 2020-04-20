@@ -1,128 +1,69 @@
-// var avgPreAqi = 43.4
-// document.getElementById("mytext").value = avgPreAqi;
-
-
 d3.select('#selDataset').on("change", updateGraphs);
 
-function getSpline() {
-    // April 17 - pulling data from Flask url
+// Format Date
+function formatDate(nowDate) {
+    nowDate = (nowDate.getMonth() + 1) +'/'+ nowDate.getDate() +"/"+ nowDate.getFullYear();
+    return nowDate;
+}
+
+function mean(numbers) {
+    var total = 0, i;
+    for (i = 0; i < numbers.length; i += 1) {
+        total += numbers[i];
+    }
+    return total / numbers.length;
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function getSummary() {
+    // pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
     var url="http://127.0.0.1:5000/api/v1.0/"+ state
 
-    // Use D3 fetch to read the JSON file
-    d3.json(url).then((importedData) => {
         
-        // Pull in the data
-        var info = importedData;
-        // console.log(info);
-      
-        // Create lists to hold data
-        var date=[], aqi=[], city=[]; 
-            
-        // Grab values from json object to build demographics info
-        for (var i = 0; i < info.length; i++) {
-            date.push(info[i].date);
-            aqi.push(parseInt(info[i].aqi_value));
-            city.push(info[i].city_name);
+        // Sort and format date
+        var newDate = chosenCityDate.sort(function(a, b) {
+            return  +new Date(a.date) - +new Date(b.date);
+        })
+        var newDate2 = [];
+        for (i=0; i<newDate.length; i++) {  
+            newDate2.push(new Date(newDate[i]).toISOString().slice(5,10));
         }
-        // console.log(date)
         
-        var dps = [];
-        var dps2 = [];
-        var chart = new CanvasJS.Chart("chartContainer", {
-            exportEnabled: true,
-            title :{
-                text: `${city[0]} 2019 vs. 2020`,
-                fontFamily: "ariel",
-                fontSize: 30,
-                fontWeight: "bold"
-            },
-            axisY: {
-                includeZero: false,
-                title: "AQI value",
-            },
-            axisX:{
-                valueFormatString: "MMM-DD",
-            },
-            toolTip:{
-                reversed: true,
-                shared: true
-            },
-            data: [{
-                type: "spline",
-                showInLegend: true,
-                name: "2019",
-                markerSize: 0,
-                dataPoints: dps,
-                color:"grey" 
-            },{
-                type: "spline",
-                showInLegend: true,
-                name: "2020",
-                markerSize: 5,
-                dataPoints: dps2,
-                color: "green"
-            }]
-        });
+        //  PRE and POST shelter-in-place data for the city
+        var postShelterAqi = data.filter(elementData => new Date(elementData.date) >= new Date(chosenCityShelterDate[0]));
+        var preShelterAqi = data.filter(elementData => new Date(elementData.date) <= new Date(chosenCityShelterDate[0]));
+        console.log(postShelterAqi.map(aqidata => aqidata.aqi_value));
+        // PRE and POST shelter-in=place date
+        var meanAqiPost = mean(postShelterAqi.map(aqidata => aqidata.aqi_value));
+        var meanAqiPre = mean(preShelterAqi.map(aqidata => aqidata.aqi_value));
+        var round_meanAqiPost = Math.round(meanAqiPost,2);
+        var round_meanAqiPre = Math.round(meanAqiPre,2);
         
-        var dateThisYear = date.slice(60, 99)
-        var aqiThisYear = aqi.slice(60, 99)
-        // console.log(dateThisYear)
-        // var dateLastYear = date.slice(160, 199)  // don't need this cause we need to use same date
-        var aqiLastYear = aqi.slice(160, 199)
-        // console.log(dateLastYear)
-        var val = 0;
-        var val2 = 0
-        var xVal = dateThisYear[0];
-        // this.console.log(xVal)
-        var xVal2 = dateThisYear[0];
-        var yVal = aqiLastYear[0];
-        var yVal2 = aqiThisYear[0];
-        var updateInterval = 1000;
-        var dataLength = 5; // number of dataPoints visible at any point
+        // Select and input statiscal data
+        document.getElementById("pre").innerHTML = round_meanAqiPre;
+        document.getElementById("post").innerHTML = round_meanAqiPost;
+        document.getElementById("shelterDate").innerHTML = chosenCityShelterDate2;
+        document.getElementById("population").innerHTML = chosenCityPopulation2;
 
-        var updateChart = function (count) {
-            count =  count || 1;
-            // console.log(count)
-            // count is number of times loop runs to generate random dataPoints.
-    
-                for (var j = 0; j < count; j++) {	
-                    xVal = new Date(dateThisYear[val])
-                    yVal = aqiLastYear[val]
-                    dps.push({
-                        x: xVal,
-                        y: yVal
-                    });
-                    val++;
-                }
-                for (var j = 0; j < count; j++) {	
-                    xVal2 = new Date(dateThisYear[val2])
-                    yVal2 = aqiThisYear[val2]
-                    dps2.push({
-                        x: xVal2,
-                        y: yVal2
-                    });
-                    val2++;
-                }
-                // if (dps.length > dataLength && dps2.length > dataLength) {       //AO - This will stop the graph   
-                //     dps.shift();
-                //     dps2.shift();
-                // }
-                // else if (dps.length === dataLength && dps2.length === dataLength) {
-                //     dps.shift();
-                //     dps2.shift();
-                // }    
-                chart.render()                
-            };        
-
-            updateChart(dataLength); 
-            setInterval(function(){ updateChart() }, updateInterval);  
-            getPlot();      
+        // var pre = d3.select("#pre");
+        // var pre = d3.select("#post");
+        // var pre = d3.select("#shelterDate");
+        // var pre = d3.select("#population");
+        
+        // // remove any data from the list
+        // list.html("");
+        // // append stats to the list
+        // list.append("li").text(`City: ${chosenCityName2}`);
+        // list.append("li").text(`Population: ${chosenCityPopulation2}`);
+        // list.append("li").text(`State Ordinance: ${chosenCityShelterDate2}`);
+        // list.append("li").text(`Pre_Shelter_AQI Mean: ${round_meanAqiPre}`);
+        // list.append("li").text(`Post_Shelter_AQI Mean: ${round_meanAqiPost}`);
     })
 }
-
-getSpline();  
-
 
 function getPlot() {
     // April 17 - pulling data from Flask url
@@ -243,14 +184,15 @@ function getPlot() {
                 data: aqiThisYear.map(function (item) {
                     return item}),   
                 markPoint: {
-                    data: [{value: `Ordinance Date: ${chosenCityShelterDate2}`, xAxis: (shelterDay.getDate()-4), yAxis: (aqiShelter)}],
+                    data: [{//value: `Ordinance Date: ${chosenCityShelterDate2}`, 
+                    xAxis: (shelterDay.getDate()-4), yAxis: (aqiShelter)}],
                     symbol: 'pin',
                     symbolSize: 40,
                     label:{
                         fontSize: 16,
                         fontStyle: "bold",
                         color: "black",
-                        offset: [10, -30]
+                        offset: [10, -10]
                     }
                     },
                 markLine: {
@@ -281,100 +223,127 @@ function getPlot() {
     })
 }
 
-function updateGraphs() {
-    getSpline();
-    getPlot();
-    getSummary();
-}
-
-
-// ADDING MATH.JS
-
-// d3.select('#selDataset').on("change", getSummary);
-// AO TEST x = [];
-function getSummary() {
-    
+function getSpline() {
     // April 17 - pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
-    if (state === "boise") {
-        var url = "http://127.0.0.1:5000/api/v1.0/boise"
-    }
-    if (state === "columbus") {
-        var url = "http://127.0.0.1:5000/api/v1.0/columbus"
-    }
-    if (state === "detroit") {
-        var url = "http://127.0.0.1:5000/api/v1.0/detroit"
-    }
-    if (state === "milwaukee") {
-        var url = "http://127.0.0.1:5000/api/v1.0/milwaukee"
-    }
-    if (state === "la") {
-        var url = "http://127.0.0.1:5000/api/v1.0/la"
-    }
-    if (state === "neworleans") {
-        var url = "http://127.0.0.1:5000/api/v1.0/neworleans"
-    }
-    if (state === "ny") {
-        var url = "http://127.0.0.1:5000/api/v1.0/ny"
-    }
-    if (state === "portland") {
-        var url = "http://127.0.0.1:5000/api/v1.0/portland"
-    }
-    if (state === "seattle") {
-        var url = "http://127.0.0.1:5000/api/v1.0/seattle"
-    }
-    if (state === "indianapolis") {
-        var url = "http://127.0.0.1:5000/api/v1.0/indianapolis"
-    }
-    d3.json(url).then(function (data) {
-        console.log(data)
-        var chosenCityDate = [];
-        var chosenCityAqi = [];
-        var chosenCityName = [];
-        var chosenCityShelterDate = [];
-        var chosenCityPopulation = [];
-        for (i=0; i<data.length; i++) {
-            chosenCityName.push(data[i].city_name);
-            chosenCityShelterDate.push(data[i].state_ordinance)
-            chosenCityPopulation.push(data[i].population); 
-            chosenCityAqi.push(data[i].aqi_value);      
-            chosenCityDate.push(data[i].date);
-        }
-        var chosenCityName2 = chosenCityName[0]
-        var chosenCityPopulation2 = chosenCityPopulation[0]
-        var chosenCityShelterDate2 = new Date(chosenCityShelterDate[0]).toISOString().slice(0, 10);
-        //console.log(chosenCityDate)
-        // Sort and format date
-        var newDate = chosenCityDate.sort(function(a, b) {
-            return  +new Date(a.date) - +new Date(b.date);
-        })
-        var newDate2 = [];
-        for (i=0; i<newDate.length; i++) {  
-            newDate2.push(new Date(newDate[i]).toISOString().slice(5,10));
-        }
-        
-        var postShelterAqi = chosenCityAqi.filter(chosenCityAqi => chosenCityAqi >= chosenCityShelterDate);
-        var datePreShelter = newDate2.slice(63, 83)
-        var aqiPreShelter = chosenCityAqi.slice(63,83)
-        var datePostShelter = newDate2.slice(84, 100)
-        var aqiPostShelter = chosenCityAqi.slice(84,100)
-        
-        var meanAqiPost = Math.mean(aqiPostShelter)
-        var meanAqiPre = Math.mean(aqiPreShelter)
-        console.log("RESULT TEST", meanAqiPost, meanAqiPre)
+    var url="http://127.0.0.1:5000/api/v1.0/"+ state
 
-        // AO TEST x.push(meanAqiPost);
+    // Use D3 fetch to read the JSON file
+    d3.json(url).then((importedData) => {
+        
+        // Pull in the data
+        var info = importedData;
+        // console.log(info);
+
+        // Create lists to hold data
+        var date=[], aqi=[], city=[]; 
             
-        var list = d3.select("#summary");
-        // remove any children from the list
-        list.html("");
-        // append stats to the list
-        // list.append("li").text(`City: ${chosenCityName2}`);
-        // list.append("li").text(`Population: ${chosenCityPopulation2}`);
-        // list.append("li").text(`State Ordinance: ${chosenCityShelterDate2}`);
-        list.append("li").text(`Post_Shelter_AQI Mean: ${meanAqiPost}`);
-        list.append("li").text(`Pre_Shelter_AQI Mean: ${meanAqiPre}`);
+        // Grab values from json object to build demographics info
+        for (var i = 0; i < info.length; i++) {
+            date.push(info[i].date);
+            aqi.push(parseInt(info[i].aqi_value));
+            city.push(info[i].city_name);
+        }
+        // console.log(date)
+        
+        var dps = [];
+        var dps2 = [];
+        var chart = new CanvasJS.Chart("chartContainer", {
+            exportEnabled: true,
+            title :{
+                text: `${city[0]} 2019 vs. 2020`,
+                fontFamily: "ariel",
+                fontSize: 30,
+                fontWeight: "bold"
+            },
+            axisY: {
+                includeZero: false,
+                title: "AQI value",
+            },
+            axisX:{
+                valueFormatString: "MMM-DD",
+            },
+            toolTip:{
+                reversed: true,
+                shared: true
+            },
+            data: [{
+                type: "spline",
+                showInLegend: true,
+                name: "2019",
+                markerSize: 0,
+                dataPoints: dps,
+                color:"grey" 
+            },{
+                type: "spline",
+                showInLegend: true,
+                name: "2020",
+                markerSize: 5,
+                dataPoints: dps2,
+                color: "green"
+            }]
+        });
+        
+        var dateThisYear = date.slice(60, 99)
+        var aqiThisYear = aqi.slice(60, 99)
+        // console.log(dateThisYear)
+        // var dateLastYear = date.slice(160, 199)  // don't need this cause we need to use same date
+        var aqiLastYear = aqi.slice(160, 199)
+        // console.log(dateLastYear)
+        var val = 0;
+        var val2 = 0
+        var xVal = dateThisYear[0];
+        // this.console.log(xVal)
+        var xVal2 = dateThisYear[0];
+        var yVal = aqiLastYear[0];
+        var yVal2 = aqiThisYear[0];
+        var updateInterval = 250;
+        var dataLength = 5; // number of dataPoints visible at any point
+
+        var updateChart = function (count) {
+            count =  count || 1;
+            // console.log(count)
+            // count is number of times loop runs to generate random dataPoints.
+    
+                for (var j = 0; j < count; j++) {	
+                    xVal = new Date(dateThisYear[val])
+                    yVal = aqiLastYear[val]
+                    dps.push({
+                        x: xVal,
+                        y: yVal
+                    });
+                    val++;
+                }
+                for (var j = 0; j < count; j++) {	
+                    xVal2 = new Date(dateThisYear[val2])
+                    yVal2 = aqiThisYear[val2]
+                    dps2.push({
+                        x: xVal2,
+                        y: yVal2
+                    });
+                    val2++;
+                }
+                // if (dps.length > dataLength && dps2.length > dataLength) {       //AO - This will stop the graph   
+                //     dps.shift();
+                //     dps2.shift();
+                // }
+                // else if (dps.length === dataLength && dps2.length === dataLength) {
+                //     dps.shift();
+                //     dps2.shift();
+                // }    
+                chart.render()                
+            };        
+
+            updateChart(dataLength); 
+            setInterval(function(){ updateChart() }, updateInterval);  
+            getPlot();      
     })
-    // AO TEST console.log("ANGELINE", x)  
 }
 
+function updateGraphs() {
+    getSummary();
+    getPlot();
+    getSpline();
+}
+
+updateGraphs();

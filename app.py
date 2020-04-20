@@ -58,8 +58,6 @@ def home():
 @app.route("/<city_name>")
 def city(city_name):
     return render_template("dashboard.html", urlOne= city_name)
-    #return render_template("index.html", mars=mars_db)
-
 
 @app.route("/api")
 def welcome():

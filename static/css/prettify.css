@@ -1,0 +1,245 @@
+/* Overall container */
+.container-fluid {
+  width: 100%;
+  min-height: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0px;
+  background-color: #DCDCDC
+}
+
+/* Making body full length of screen */
+html, body {
+  height: 100%;
+}
+
+.navbar{
+    background-color: #116112 ;
+  }
+
+/* Logo */
+.navbar-brand{
+    background-color:#116112 ;
+    padding: 5px;
+    font-size: 30px;
+    margin-left: 50px;
+    font-family: monospace;
+  }
+
+/* push navbar off right wall */
+.navvy_bg {
+  margin-top: 3px;
+  margin-right:25px;
+} 
+
+/* Full width, white header */
+.theheader {
+    width: 100%;
+    padding: 0px;
+}
+
+/* Alters viewing height of content */
+.row-background {
+  min-height: 60vh;
+  background-color: #DCDCDC;
+  /* border-top: 50px solid #DCDCDC; */
+}
+
+#dataR {
+  border-right: 50px solid #DCDCDC;
+}
+
+#dataL {
+  border-left: 50px solid #DCDCDC;
+}
+
+.data {
+  background-color: #ffff;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  border-top: 25px solid #DCDCDC;
+  border-left: 15px solid #DCDCDC;
+  border-right: 15px solid #DCDCDC;
+}
+
+/* Big section w/ image and paragraph */
+.bar_graph {
+  background-color: #ffff;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  border-top: 25px solid #DCDCDC;
+  border-left: 50px solid #DCDCDC;
+  border-right: 15px solid #DCDCDC;
+  border-bottom: 25px solid #DCDCDC;
+}
+
+/* Little section with 4 graphs */
+.line_graph {
+  background-color: #ffff;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  border-top: 25px solid #DCDCDC;
+  border-left: 15px solid #DCDCDC;
+  border-right: 50px solid #DCDCDC;
+  border-bottom: 25px solid #DCDCDC;
+}
+
+#pre {
+  color: #FC600A; 
+  text-align: right;
+}
+#post {
+  color: #347C98; 
+  text-align: right;
+}
+#shelterDate {
+  color: #8601AF; 
+  text-align: right;
+}
+#population {
+  color: #C21460;
+  text-align: right;
+}
+/* Summary/Visualization headers */
+/* h2 {
+  color: #116112 ;
+  text-align: right;
+} */
+
+/* Paragraphs */
+p {
+  padding-top:10px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  /* line-height: 30px; */
+}
+
+hr {
+  padding: 0px;
+  margin: 0px !important;
+}
+
+/* Bottom/footer of page */
+.copyright {
+    background-color: #696969;
+    border-top: 10px solid #116112 ;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width:100%;
+}
+
+/* Small screen changes */
+@media (max-width: 992px) {
+  /* header */
+  .theheader {
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color:#116112 ;
+  }
+  /* Make navbar taller */
+  .navbar-brand {
+    background-color:#116112 ;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #dataR {
+    border-right: 30px solid #DCDCDC;
+    border-left: 10px solid #DCDCDC;
+  }
+  #dataL {
+    border-left: 30px solid #DCDCDC;
+    border-right: 10px solid #DCDCDC;
+  }
+  #dataML {
+    border-right: 30px solid #DCDCDC;
+    border-left: 10px solid #DCDCDC;
+  }
+  #dataMR {
+    border-left: 30px solid #DCDCDC;
+    border-right: 10px solid #DCDCDC;
+  }
+  /* summary section */
+  .bar_graph {
+      padding:10px;
+      padding-top: 0px;
+      border-top: 25px solid #DCDCDC;
+      border-bottom: 15px solid #DCDCDC;
+      border-left: 30px solid #DCDCDC;
+      border-right: 30px solid #DCDCDC;
+  }
+  /* visualization section */
+  .line_graph {
+      padding: 10px;
+      padding-top: 0px;
+      border-top: 15px solid #DCDCDC;
+      border-bottom: 50px solid #DCDCDC;
+      border-left: 30px solid #DCDCDC;
+      border-right: 30px solid #DCDCDC;
+  }
+  /* background of dropdown in navbar */
+  .navvy_bg {
+    background-color:#ffff;
+    padding-left: 10px;
+    margin-right:0px;
+  } 
+  /* push dropdown menu items off the wall of page */
+  .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 25px;
+    margin-top: 2px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 2px;
+  }
+  /* push hamburger off right wall */
+  .navbar-light .navbar-toggler {
+    border-color: #ffff;
+    margin-right: 30px;
+  }
+  /* Plots dropdown in navbar */
+  .dropdown-toggle {
+    margin-top: 0px;
+    padding: 5px;
+  }
+  /* Change Plots (navbar) color when clicked */
+  .navbar-light .navbar-nav .show>.nav-link {
+    background-color: #DCDCDC;
+    margin-top: 0px;
+    border-radius: 5px;
+    border: 2px solid #DCDCDC;
+    padding: 5px;
+  }
+  /* Push box in dropdown menu away from edges */
+  .dropdown, .dropleft, .dropright, .dropup {
+    position: relative;
+    padding-top: 10px;
+  }
+  /* Round edges in box around down menu */
+  .dropdown-menu {
+    border-radius: 10px;
+  }
+  /* Push box in dropdown menu away from edges */
+  .dropdown, .dropleft, .dropright, .dropup {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+  /* Round edges in box around down menu */
+  .dropdown-menu {
+    border-radius: 10px;
+  }
+  /* Move dropdown menu away from margins */
+  .dropdown-menu.show {
+    display: block;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
