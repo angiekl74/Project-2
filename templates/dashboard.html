@@ -1,8 +1,9 @@
 <!doctype html>
     <html>
     <head>
-    	<title>ECharts Sample</title>
+    	<title>Chart Sample</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        
     </head>
     <body>
             <!-- -->
@@ -20,6 +21,25 @@
                 <option value="seattle">Seattle</option>
                 <option value="indianapolis">Indianapolis</option>
             </select>
+
+            <div class="container-fluid">            
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3" id="summary">
+                        <span style="padding-top: 50px" id="mySpanId"> Avg Pre AQI </span>
+                                   
+                    </div>    
+                    <div class="col-xs-6 col-sm-3">
+                        <span> Avg AQI Post Shelter</span>
+                    </div>                    
+                    <div class="col-xs-6 col-sm-3">
+                        <span> Shelter Date</span>   
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <span> Some other data </span>
+                    </div>
+                  </div>      
+            </div>
+            
         <div class="row">
             <div class="col-lg-6">
                 <div id="chart" style="max-width: 700px; height: 500px; margin-left: 25px"></div>
@@ -33,14 +53,25 @@
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="../static/js/dashboard.js"></script>
-		
+        <!-- <script src="math.js"></script> -->
     </body>
-</html>
-
-
-<!-- 
+</html>            
 
 
 
-    </body>
-</html> -->
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+ 
+ 
+
