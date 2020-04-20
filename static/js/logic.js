@@ -25,13 +25,6 @@ function formatDate(nowDate) {
 	return nowDate;
 }
 
-// function dateFix (nowDate) {
-//   if (nowDate === 12/31/1969)
-//     nowDate = "None"
-
-//   return nowDate;
-// }
-
 var geojson;
 var aqi;
 

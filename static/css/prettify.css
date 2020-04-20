@@ -1,10 +1,11 @@
 /* Overall container */
 .container-fluid {
   width: 100%;
-  min-height: 100%;
+  min-height: 95%;
   margin-right: auto;
   margin-left: auto;
   padding: 0px;
+  background-color: #DCDCDC
 }
 
 /* Making body full length of screen */
@@ -45,11 +46,11 @@ html, body {
 }
 
 #dataR {
-  border-right: 50px solid #DCDCDC !important;
+  border-right: 50px solid #DCDCDC;
 }
 
 #dataL {
-  border-left: 50px solid #DCDCDC !important;
+  border-left: 50px solid #DCDCDC;
 }
 
 .data {
@@ -89,74 +90,48 @@ html, body {
   border-bottom: 25px solid #DCDCDC;
 }
 
-/* Border above and below main content section (visualization pages only) */
-.top_bottom {
-  border-bottom: 30px solid #DCDCDC;
-}
-
-/* Main content (comparison page only) */
-.box {
-  padding-left: 30px;
-  padding-right: 10px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  border-left: 100px solid #DCDCDC;
-  border-right: 100px solid #DCDCDC;
-  border-top: 50px solid #DCDCDC;
-  border-bottom: 50px solid #DCDCDC;
-}
-/* Data background (data page only) */
-.background {
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-left: 100px solid #DCDCDC;
-  border-right: 100px solid #DCDCDC;
-  border-top: 50px solid #DCDCDC;
-  border-bottom: 25px solid #DCDCDC;
-}
-
-/* Summary/Visualization headers */
-h2 {
-  color: #116112 ;
-  padding-left: 10px;
-  padding-top: 0px;
+#pre {
+  color: #FC600A; 
   text-align: right;
 }
-
+#post {
+  color: #347C98; 
+  text-align: right;
+}
+#shelterDate {
+  color: #8601AF; 
+  text-align: right;
+}
+#population {
+  color: #C21460;
+  text-align: right;
+}
 /* Summary/Visualization headers */
-h3 {
+/* h2 {
   color: #116112 ;
-  padding-left: 10px;
-  padding-top: 5px;
-}
-
-/* Graph headers (comparison page only) */
-h4 {
-color: #116112;
-padding-left: 10px;
-}
+  text-align: right;
+} */
 
 /* Paragraphs */
 p {
-  padding-top: 10px;
-  line-height: 30px;
+  padding-top:10px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  /* line-height: 30px; */
 }
 
-/* Image in summary section */
-.image1{
-    padding: 0 5px; 
-    float: left;
-} 
+hr {
+  padding: 0px;
+  margin: 0px !important;
+}
 
 /* Bottom/footer of page */
 .copyright {
     background-color: #696969;
     border-top: 10px solid #116112 ;
     color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     width:100%;
 }
 
@@ -176,20 +151,20 @@ p {
     padding-bottom: 10px;
   }
   #dataR {
-    border-right: 30px solid #DCDCDC !important;
+    border-right: 30px solid #DCDCDC;
+    border-left: 10px solid #DCDCDC;
   }
   #dataL {
-    border-left: 30px solid #DCDCDC !important;
+    border-left: 30px solid #DCDCDC;
+    border-right: 10px solid #DCDCDC;
   }
-  .data {
-    background-color: #ffff;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 0px;
-    padding-bottom: 5px;
-    border-top: 25px solid #DCDCDC;
-    border-left: 15px solid #DCDCDC;
-    border-right: 15px solid #DCDCDC;
+  #dataML {
+    border-right: 30px solid #DCDCDC;
+    border-left: 10px solid #DCDCDC;
+  }
+  #dataMR {
+    border-left: 30px solid #DCDCDC;
+    border-right: 10px solid #DCDCDC;
   }
   /* summary section */
   .bar_graph {
