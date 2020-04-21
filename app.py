@@ -129,53 +129,6 @@ def boise():
         boise_aqi.append(boise_dict)
 
     return jsonify(boise_aqi)
-# JUSTIN TEST CREATING JUST 1 city route and using v1.1, not v1.0
-@app.route("/api/v1.1/<city>")   
-def get_city_info(city):
-
-    session = Session(engine)
-    City = Base.classes[city]
-    # Query Boise's data
-    city_data = session.query(
-        City.date,
-        City.overall_aqi_value,
-        City.main_pollutant,
-        City.site_name,
-        City.site_id,
-        City.source_aqi, 
-        # City.co,
-        # City.ozone,
-        # City.so2,
-        # City.pm10,
-        # City.pm25,
-        # City.no2,
-        City.lat,
-        City.lon,
-        City.city_name,
-        City.state_ordinance,
-        City.population).all()
-    
-    session.close()
-
-    # Create a dictionary to hold boise data
-    city_aqi = []
-    for date, overall_aqi_value, main_pollutant, site_name, site_id, source_aqi, lat, lon, city_name, state_ordinance, population in city_data:
-        city_dict = {}
-        city_dict["date"] = date
-        city_dict["aqi_value"] = overall_aqi_value
-        city_dict["main_pollutant"] = main_pollutant
-        city_dict["site_name"] = site_name
-        city_dict["site_id"] = site_id
-        city_dict["source_aqi"] = source_aqi
-        city_dict["lat"] = lat
-        city_dict["lon"] = lon
-        city_dict["city_name"] = city_name
-        city_dict["state_ordinance"] = state_ordinance
-        city_dict["population"] = population
-        city_aqi.append(city_dict)
-
-    return jsonify(city_aqi)
-
 
 @app.route("/api/v1.0/columbus")
 def columbus():
