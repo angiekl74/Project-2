@@ -13,7 +13,7 @@
   <!-- Overall conatainer -->
   <div class="container-fluid">
     <!-- ROW 1 Navbar-->
-    <div class="row">
+    <div class="row sticky-top">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-light theheader">
         <!-- Page Title -->
@@ -45,17 +45,17 @@
       <div class="col-md-12">
         <div class="row">
           <div class="col-md-3 col-sm-6 data" id="dataL">
-            <p>Pre Shelter Average AQI</p>
+            <p>Last Years AQI Average</p>
             <hr>
             <h2 id="pre"></h2>
           </div>
           <div class="col-md-3 col-sm-6 data" id="dataML">
-            <p>Post Shelter Average AQI</p>
+            <p>Post Ordinance AQI Average</p>
             <hr>
             <h2 id="post"></h2>
           </div>
           <div class="col-md-3 col-sm-6 data" id="dataMR">
-            <p>Shelter in Place Ordinance Date</p>
+            <p>Shelter in Place Ordinance</p>
             <hr>
             <h2 id="shelterDate"></h2>
           </div>
@@ -88,12 +88,12 @@
         <!-- </div> closes row  -->
       </div> <!-- closes line graph Section -->
     </div> <!-- closes ROW 3  --> 
+    <div class="row fixed-bottom">
+      <p class="text-center copyright">
+          © Copyright © DANIEL LOVE, NANCY MATHUR, ANGIE ONG & CHAD GIELOW 2020
+      </p>
+    </div> <!-- closes ROW 4 Footer -->
   </div> <!-- closes Container  --> 
-  <div class="row">
-    <p class="text-center copyright">
-        © Copyright © DANIEL LOVE, NANCY MATHUR, ANGIE ONG & CHAD GIELOW 2020
-    </p>
-  </div> <!-- closes ROW 4 Footer -->
 <!-- Graph scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts-en.min.js"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
