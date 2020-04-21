@@ -88,7 +88,7 @@ function getPlot() {
             chosenCityShelterDate.push(data[i].state_ordinance)
         }
         
-        var chosenCityName2 = chosenCityName[0]
+        var chosenCityName2 = chosenCityName[0].replace('_',' ');
         var shelterDay = new Date(chosenCityShelterDate[0])
         var chosenCityShelterDate2 = new Date(chosenCityShelterDate[0]).toISOString().slice(5, 10);
     
@@ -126,19 +126,32 @@ function getPlot() {
                     axisLabel: {
                         show: true,   
                         interval: 5,
-                        rotate: 45, 
+                        rotate: 45                        
                     },
                     data: dateThisYear.map(function (item) {
                         return item})
+                    
             },          
             yAxis: { 
-                    splitLine: {
-                    show: false  // ??? AO - splitLine - not sure what this does
-                        },
+                    // splitLine: {
+                    // show: false  // ??? AO - splitLine - not sure what this does
+                    //     },
+                    
+                        type: 'value',
+                        name: 'AQI Value',
+                        nameLocation:'middle',
+                        nameGap: 30
+                       // nameRotate:0,
+                        // position: 'left',
+                        // min:0,
+                        // max:14,
+                        // axisTick: {
+                        //     alignWithLabel: false
+                        // },
             },
             visualMap: {
-                top: 20,
-                right: 10,
+                top: -5,
+                right: -5,
                 pieces: [{
                     gt: 0,
                     lte: 50,
@@ -239,7 +252,7 @@ function getSpline() {
         
         // Create lists to hold data
         var date=[], aqi=[], city=[]; 
-            
+                    
         // Grab values from json object to build demographics info
         for (var i = 0; i < info.length; i++) {
             date.push(info[i].date);
@@ -247,13 +260,15 @@ function getSpline() {
             city.push(info[i].city_name);
         }
         // console.log(date)
+        var city2 = city[0].replace("_", " ")
+        console.log(city2)
         
         var dps = [];
         var dps2 = [];
         var chart = new CanvasJS.Chart("chartContainer", {
-            exportEnabled: true,
+            exportEnabled: false,
             title :{
-                text: `${city[0]} 2019 vs. 2020`,
+                text: `${city2} 2019 vs. 2020`,
                 fontFamily: "ariel",
                 fontSize: 30,
                 fontWeight: "bold"
@@ -263,7 +278,8 @@ function getSpline() {
                 title: "AQI value",
             },
             axisX:{
-                valueFormatString: "MMM-DD",
+                valueFormatString: "MM-DD",
+                labelAngle: 130
             },
             toolTip:{
                 reversed: true,
