@@ -2,6 +2,8 @@
 The question we hope to be able to answer:
 How has State's "Shelter in Place"Ordinances affected Air Quality in US cities?
 
+<a href="https://imgflip.com/gif/3xl5dg"><img src="https://imgflip.com/embed/3xl5dg"></a>
+
 We are gathering data on air quality on varies US cities. We intend to compare air quality conditions in numerous cities to see if there is a difference after Shelter in Place State Ordinances went into place. We will compare the two weeks of air quality conditions post, pre and the year prior to these ordinances. 
 
 Our air quality data is coming from US EPA: 
