@@ -1,4 +1,4 @@
-d3.select('#selDataset').on("change", updateGraphs);
+d3.select('#selDataset').on("change", updateGraphs());
 
 // Format Date
 function formatDate(nowDate) {
@@ -28,18 +28,21 @@ function getSummary() {
         var chosenCityDate = [];
         var chosenCityAqi = [];
         var chosenCityName = [];
-        var chosenCityShelterDate = [];
-        var chosenCityPopulation = [];
+        var chosenCityShelterDate = []
+        var chosenCityPopulation = []
+    
         for (i=0; i<data.length; i++) {
+            chosenCityDate.push(data[i].date);
+            chosenCityAqi.push(data[i].aqi_value);      
             chosenCityName.push(data[i].city_name);
             chosenCityShelterDate.push(data[i].state_ordinance)
-            chosenCityPopulation.push(data[i].population); 
-            chosenCityAqi.push(data[i].aqi_value);      
-            chosenCityDate.push(data[i].date);
-        }
-        // var chosenCityName2 = chosenCityName[0]
-        var chosenCityPopulation2 = numberWithCommas(chosenCityPopulation[0]);
-        var chosenCityShelterDate2 = formatDate(new Date(chosenCityShelterDate[0]));
+            chosenCityPopulation.push(data[i].population)
+
+        var chosenCityName2 = chosenCityName[0]
+        var chosenCityPopulation2 = chosenCityPopulation[0]
+        var shelterDay = new Date(chosenCityShelterDate[0])
+        var chosenCityShelterDate2 = new Date(chosenCityShelterDate[0]).toISOString().slice(5, 10);
+        console.log("Angie",chosenCityName2)
         
         // Sort and format date
         var newDate = chosenCityDate.sort(function(a, b) {
@@ -65,7 +68,8 @@ function getSummary() {
         document.getElementById("post").innerHTML = round_meanAqiPost;
         document.getElementById("shelterDate").innerHTML = chosenCityShelterDate2;
         document.getElementById("population").innerHTML = chosenCityPopulation2;
-    })
+    }
+})
 }
 
 function getPlot() {
@@ -129,11 +133,13 @@ function getPlot() {
                     data: dateThisYear.map(function (item) {
                         return item})
             },          
-            yAxis: { 
-                    splitLine: {
-                    show: false  // ??? AO - splitLine - not sure what this does
-                        },
-            },
+            yAxis : {
+                    name: "AQI Value",
+                    nameLocation: "middle",
+                    nameTextStyle: {
+                        fontSize: 100
+                    }
+                },
             visualMap: {
                     top: 20,
                     right: 10,
@@ -188,7 +194,7 @@ function getPlot() {
                     return item}),   
                 markPoint: {
                     data: [{//value: `Ordinance Date: ${chosenCityShelterDate2}`, 
-                    xAxis: (shelterDay.getDate()-4), yAxis: (aqiShelter)}],
+                    xAxis: (shelterDay.getDate()), yAxis: (aqiShelter)}],
                     symbol: 'pin',
                     symbolSize: 40,
                     label:{
@@ -222,17 +228,20 @@ function getPlot() {
             
         };
         myChart.setOption(option);
+
     }
-    })
+    getSpline(data)
+})
 }
 
-function getSpline() {
-    // April 17 - pulling data from Flask url
-    var state = d3.select("#selDataset").node().value;
-    var url="http://127.0.0.1:5000/api/v1.0/"+ state
 
-    // Use D3 fetch to read the JSON file
-    d3.json(url).then((importedData) => {
+function getSpline(importedData) {
+    // April 17 - pulling data from Flask url
+    // var state = d3.select("#selDataset").node().value;
+    // var url="http://127.0.0.1:5000/api/v1.0/"+ state
+
+    // // // Use D3 fetch to read the JSON file
+    // d3.json(url).then((importedData) => {
         
         // Pull in the data
         var info = importedData;
@@ -334,14 +343,15 @@ function getSpline() {
 
             updateChart(dataLength); 
             setInterval(function(){ updateChart() }, updateInterval);  
-            getPlot();      
-    })
+            // getPlot();      
+    // })
+
 }
 
 function updateGraphs() {
     getSummary();
     getPlot();
-    getSpline();
+    // getSpline();
 }
 
 updateGraphs();

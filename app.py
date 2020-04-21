@@ -11,15 +11,16 @@ from flask_cors import CORS
 from flask import request
 from flask import render_template
 
-# from config import password
+from flask_cors import CORS
+from config import password
 
 
 #################################################
 # Database Setup
 #################################################
 
-engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
-# engine = create_engine(f"postgresql://postgres:{password}@localhost:5432/Project2AQI")
+# engine = create_engine("postgresql://postgres:postgres@localhost:5432/Project2AQI")
+engine = create_engine(f"postgresql://postgres:{password}@localhost:5432/Project2AQI")
 
 conn = engine.connect()
 
@@ -38,6 +39,7 @@ Ny = Base.classes.ny
 Portland = Base.classes.portland
 Seattle = Base.classes.seattle
 Indianapolis = Base.classes.indianapolis
+
 
 # Flask Setup
 #################################################
@@ -60,21 +62,27 @@ def city(city_name):
 
 @app.route("/api")
 def welcome():
-    """List all available aqi routes."""
-    return (
-        f"Welcome to the Air Quality Index Data!<br/>"
-        f"Available Routes:<br/>"
-        f"<a href='/api/v1.0/boise'> Air Quality Index data Boise</a><br/>"
-        f"<a href='/api/v1.0/columbus'> Air Quality Index data Columbus</a><br/>"
-        f"<a href='/api/v1.0/detroit'> Air Quality Index data Detroit</a><br/>"
-        f"<a href='/api/v1.0/milwaukee'> Air Quality Index data Milwaukee</a><br/>"
-        f"<a href='/api/v1.0/la'> Air Quality Index data Los Angeles</a><br/>"
-        f"<a href='/api/v1.0/neworleans'> Air Quality Index data New Orleans</a><br/>"
-        f"<a href='/api/v1.0/ny'> Air Quality Index data New York City</a><br/>"
-        f"<a href='/api/v1.0/portland'> Air Quality Index data Portland</a><br/>"
-        f"<a href='/api/v1.0/seattle'> Air Quality Index data Seattle</a><br/>"
-        f"<a href='/api/v1.0/indianapolis'> Air Quality Index data Indianapolis</a><br/>"
-    )
+
+    # AO - Testing Landing page
+    return render_template("index2.html")
+    
+    # """List all available aqi routes."""
+    # return (
+    #     f"Welcome to the Air Quality Index Data!<br/>"
+    #     f"Available Routes:<br/>"
+    #     f"<a href='/api/v1.0/boise'> Air Quality Index data Boise</a><br/>"
+    #     f"<a href='/api/v1.0/columbus'> Air Quality Index data Columbus</a><br/>"
+    #     f"<a href='/api/v1.0/detroit'> Air Quality Index data Detroit</a><br/>"
+    #     f"<a href='/api/v1.0/milwaukee'> Air Quality Index data Milwaukee</a><br/>"
+    #     f"<a href='/api/v1.0/la'> Air Quality Index data Los Angeles</a><br/>"
+    #     f"<a href='/api/v1.0/neworleans'> Air Quality Index data New Orleans</a><br/>"
+    #     f"<a href='/api/v1.0/ny'> Air Quality Index data New York City</a><br/>"
+    #     f"<a href='/api/v1.0/portland'> Air Quality Index data Portland</a><br/>"
+    #     f"<a href='/api/v1.0/seattle'> Air Quality Index data Seattle</a><br/>"
+    #     f"<a href='/api/v1.0/indianapolis'> Air Quality Index data Indianapolis</a><br/>"
+    #     f"<a href='/api/v1.0/linechartboise'> Air Quality Index data linechartboise</a><br/>"
+
+    # )
 
 @app.route("/api/v1.0/boise")   
 def boise():
