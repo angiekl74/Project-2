@@ -85,9 +85,10 @@ html, body {
   padding-right: 15px;
   padding-top: 0px;
   padding-bottom: 5px;
-  border-top: 25px solid #fff;
+  border-top: 60px solid #fff;
   border-left: 15px solid #fff;
   border-right: 15px solid #fff;
+  border-bottom: 30px solid #fff;
 }
 /* Statical data color and alignment - dashboard */
 .stat {
@@ -104,6 +105,9 @@ html, body {
 }
 /* dashboard - bar graph */
 .bar_graph {
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto; */
   background-color: #fff;
   padding-left: 15px;
   padding-right: 15px;
@@ -250,10 +254,18 @@ h1 {
     background-color:#fff;
     padding-left: 10px;
     margin-right:0px;
+    margin-left: 0px;
   } 
-  /* Dropdown color */
+  /* dashboard.html push navbar off right wall */
+
+  /* Dropdown City Data color */
   #navbarDropdown {
     color: #696969!important;
+  }
+   /* Dropdown Homepage color */
+   #homepage-link {
+    color: #696969 !important;
+    margin-left: 0px !important;
   }
   /* push dropdown menu items off the wall of page */
   .navbar-nav .nav-link {
@@ -309,23 +321,31 @@ h1 {
   }
   /* Far right statiscal data */
   #dataR {
-    border-right: 30px solid #FFF;
-    border-left: 10px solid #FFF;
+    border-top: 25px solid #fff;
+    border-bottom:25px solid #fff;
+    border-right: 50px solid #FFF;
+    border-left: 15px solid #FFF;
   }
   /* Far left statiscal data */
   #dataL {
-    border-left: 30px solid #FFF;
-    border-right: 10px solid #FFF;
+    border-top: 40px solid #fff;
+    border-bottom:0px solid #fff;
+    border-left: 50px solid #FFF;
+    border-right: 15px solid #FFF;
   }
   /* Middle left statistical data */
   #dataML {
-    border-right: 30px solid #FFF;
-    border-left: 10px solid #FFF;
+    border-top: 40px solid #fff;
+    border-bottom:0px solid #fff;
+    border-right: 50px solid #FFF;
+    border-left: 15px solid #FFF;
   }
   /* Middle right statiscal data */
   #dataMR {
-    border-left: 30px solid #FFF;
-    border-right: 10px solid #FFF;
+    border-top: 25px solid #fff;
+    border-bottom: 25px solid #fff;
+    border-left: 50px solid #FFF;
+    border-right: 15px solid #FFF;
   }
   /* bar graph small screen */
   .bar_graph {
@@ -344,7 +364,7 @@ h1 {
       padding: 10px;
       padding-top: 0px;
       border-top: 15px solid #FFF;
-      border-bottom: 50px solid #FFF;
+      border-bottom: 75px solid #FFF;
       border-left: 30px solid #FFF;
       border-right: 30px solid #FFF;
   }
