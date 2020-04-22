@@ -1,6 +1,5 @@
-d3.select('#selDataset').on("change", updateGraphs);
-
-// Format Date
+d3.select("#selDataset").on("change", updateGraphs);
+//Format Date
 function formatDate(nowDate) {
     nowDate = (nowDate.getMonth() + 1) +'/'+ nowDate.getDate() +"/"+ nowDate.getFullYear();
     return nowDate;
@@ -21,8 +20,8 @@ function numberWithCommas(x) {
 function getSummary() {
     // pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
-    var url="http://127.0.0.1:5000/api/v1.0/"+ state
-
+    var url="http://127.0.0.1:5000/api/v1.0/"+ state;
+    
     d3.json(url).then(function (data) {
         // console.log(data)
         var chosenCityDate = [];
@@ -54,7 +53,7 @@ function getSummary() {
         var postShelterAqi = data.filter(elementData => new Date(elementData.date) >= new Date(chosenCityShelterDate[0]));
         var preShelterAqi = data.filter(elementData => new Date(elementData.date) <= new Date(chosenCityShelterDate[0]));
         // console.log(postShelterAqi.map(aqidata => aqidata.aqi_value));
-
+        
         // PRE and POST shelter-in=place date
         var meanAqiPost = mean(postShelterAqi.map(aqidata => aqidata.aqi_value));
         var meanAqiPre = mean(preShelterAqi.map(aqidata => aqidata.aqi_value));
@@ -73,8 +72,8 @@ function getSummary() {
 function getPlot() {
     // April 17 - pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
-    var url="http://127.0.0.1:5000/api/v1.0/"+ state
-
+    var url="http://127.0.0.1:5000/api/v1.0/"+ state;
+    
     d3.json(url).then(function (data) {
         // console.log(data)
         var chosenCityDate = [];
@@ -88,8 +87,8 @@ function getPlot() {
             chosenCityName.push(data[i].city_name);
             chosenCityShelterDate.push(data[i].state_ordinance)
         }
-
-        var chosenCityName2 = chosenCityName[0]
+        
+        var chosenCityName2 = chosenCityName[0].replace('_',' ');
         var shelterDay = new Date(chosenCityShelterDate[0])
         var chosenCityShelterDate2 = new Date(chosenCityShelterDate[0]).toISOString().slice(5, 10);
     
@@ -107,7 +106,7 @@ function getPlot() {
         var aqiThisYear = chosenCityAqi.slice(63,100);
         var aqiShelter = aqiThisYear[(shelterDay.getDate()-4)];
         // console.log(aqiShelter);
-
+        
         // Create chart
         var chart = document.getElementById('chart');
         var myChart = echarts.init(chart);
@@ -127,19 +126,32 @@ function getPlot() {
                     axisLabel: {
                         show: true,   
                         interval: 5,
-                        rotate: 45, 
+                        rotate: 45                        
                     },
                     data: dateThisYear.map(function (item) {
                         return item})
+                    
             },          
             yAxis: { 
-                    splitLine: {
-                    show: false  // ??? AO - splitLine - not sure what this does
-                        },
+                    // splitLine: {
+                    // show: false  // ??? AO - splitLine - not sure what this does
+                    //     },
+                    
+                        type: 'value',
+                        name: 'AQI Value',
+                        nameLocation:'middle',
+                        nameGap: 30
+                       // nameRotate:0,
+                        // position: 'left',
+                        // min:0,
+                        // max:14,
+                        // axisTick: {
+                        //     alignWithLabel: false
+                        // },
             },
             visualMap: {
-                top: 20,
-                right: 10,
+                top: -5,
+                right: -5,
                 pieces: [{
                     gt: 0,
                     lte: 50,
@@ -183,7 +195,6 @@ function getPlot() {
             }, {
                 type: 'inside'
             }],
-
             series: {
                 name: `${chosenCityName2} AQI`,
                 type: 'bar',
@@ -222,28 +233,26 @@ function getPlot() {
                     // }
                 }
             }, 
-
         };
         myChart.setOption(option);
-
     })
 }
 
 function getSpline() {
     // April 17 - pulling data from Flask url
     var state = d3.select("#selDataset").node().value;
-    var url="http://127.0.0.1:5000/api/v1.0/"+ state
-
+    var url="http://127.0.0.1:5000/api/v1.0/"+ state;
+    
     // Use D3 fetch to read the JSON file
     d3.json(url).then((importedData) => {
         
         // Pull in the data
         var info = importedData;
         // console.log(info);
-
+        
         // Create lists to hold data
         var date=[], aqi=[], city=[]; 
-            
+                    
         // Grab values from json object to build demographics info
         for (var i = 0; i < info.length; i++) {
             date.push(info[i].date);
@@ -251,13 +260,15 @@ function getSpline() {
             city.push(info[i].city_name);
         }
         // console.log(date)
+        var city2 = city[0].replace("_", " ")
+        console.log(city2)
         
         var dps = [];
         var dps2 = [];
         var chart = new CanvasJS.Chart("chartContainer", {
-            exportEnabled: true,
+            exportEnabled: false,
             title :{
-                text: `${city[0]} 2019 vs. 2020`,
+                text: `${city2} 2019 vs. 2020`,
                 fontFamily: "ariel",
                 fontSize: 30,
                 fontWeight: "bold"
@@ -267,7 +278,8 @@ function getSpline() {
                 title: "AQI value",
             },
             axisX:{
-                valueFormatString: "MMM-DD",
+                valueFormatString: "MM-DD",
+                labelAngle: 130
             },
             toolTip:{
                 reversed: true,
@@ -305,7 +317,7 @@ function getSpline() {
         var yVal2 = aqiThisYear[0];
         var updateInterval = 250;
         var dataLength = 5; // number of dataPoints visible at any point
-
+        
         var updateChart = function (count) {
             count =  count || 1;
             // console.log(count)
@@ -341,7 +353,7 @@ function getSpline() {
         };        
         updateChart(dataLength); 
         setInterval(function(){ updateChart() }, updateInterval);  
-        getPlot();      
+        // getPlot();      
     })
 }
 
