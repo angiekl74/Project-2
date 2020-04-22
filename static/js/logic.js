@@ -29,19 +29,16 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
-var geojson;
-var aqi;
-
 // Grab data with d3
 d3.json(statesAQI, function(data) {
   // Create a new choropleth layer
-  geojson = L.choropleth(data, {
+  var geojson = L.choropleth(data, {
 
     // Define what property in the features to use
     valueProperty: "AQI",
 
     // Set color scale
-    scale: ["rgb(254,255,195)", "rgb(88,180,177)", "rgb(29,38,127)"],
+    scale:["rgb(254,255,195)", "rgb(88,180,177)", "rgb(29,38,127)"],
 
     // Number of breaks in step range
     steps: 10,
@@ -73,7 +70,7 @@ d3.json(statesAQI, function(data) {
     var labels = [];
 
     // Add min & max
-    var legendInfo = "<h1>AQI Values</h1>" +
+    var legendInfo = "<h1>AQI Averages</h1>" +
       "<div class=\"labels\">" +
         "<div class=\"min\">" + limits[0] + "</div>" +
         "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
