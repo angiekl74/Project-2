@@ -88,12 +88,13 @@ The project is created with:
 # Can someone add some description/instructions here?
 
 5. Creating graphs using 3 javascript libraries (Leaflet, JSCanvas and ECharts)
-# DANIEL, can you please add something here about creating choropleth map?
+    * To explore the interactive capabilities of Leaflet choropleth map (https://leafletjs.com/examples/choropleth/) 
     * To download javascript code sample to create dynamic multi series line chart (https://canvasjs.com/javascript-charts/dynamic-live-multi-series-chart/)
     * To review EChart Beijing inspired AQI chart (https://echarts.apache.org/examples/en/editor.html?c=line-aqi). &nbsp; &nbsp; Note: To make more impactful chart, we dicided to show a bar chart instead of a line due to lack of datapoints. 
 
 6. Designing the look of the dashboard
-# DANIEL, can you please add something here about CSS, HTML?
+    * Bootstrap powerful and interactive tool (https://www.layoutit.com/build) was used to build the bones of the html.
+    * CSS and Bootstrap built in tools were used to create the simple and clean design we aspired to on the two sites we created. 
 
 ## Project_responsibilties
 * Break down of Project Assignments within our group: 
