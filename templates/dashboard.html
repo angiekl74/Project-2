@@ -5,8 +5,8 @@
   <title>Bootstrap Components</title>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../static/css/prettify.css">
-  <link rel="stylesheet" type="text/css" media="(max-width: 992px)" href="../static/css/prettify.css" />
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="stylesheet" type="text/css" media="(max-width: 992px)" href="../static/css/index.css" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
     <!-- ROW 1 Navbar-->
     <div class="row sticky-top">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light theheader">
+      <nav class="navbar navbar-expand-lg navbar-dark theheader">
         <!-- Page Title -->
         <a class="navbar-brand text-white" href="http://127.0.0.1:5500/templates/index.html">Covid 19 Effects on Air Quality</a>
         <!-- Hamburger toggler button -->
@@ -23,19 +23,19 @@
           <span class="navbar-toggler-icon hamburger"></span>
         </button>
         <!-- City dropdown links to visuals -->
-        <div class="collapse navbar-collapse navvy_bg" id="navbarSupportedContent" >
+        <div class="collapse navbar-collapse navvy_b" id="navbarSupportedContent" >
           <select class="form-control" id="selDataset" >
             <option value="{{urlOne}}">Choose a City</option>
-            <option value="boise">Boise</option>
-            <option value="columbus">Columbus</option>
-            <option value="detroit">Detroit</option>
-            <option value="indianapolis">Indianapolis</option>
-            <option value="milwaukee">Milwaukee</option>
-            <option value="la">LA</option>
-            <option value="neworleans">New Orleans</option>
-            <option value="ny">New York</option>
-            <option value="portland">Portland</option>
-            <option value="seattle">Seattle</option>
+            <option value="boise">Boise, Idaho</option>
+            <option value="columbus">Columbus, Ohio</option>
+            <option value="detroit">Detroit, Michigan</option>
+            <option value="indianapolis">Indianapolis, Indiana</option>
+            <option value="milwaukee">Milwaukee, Wisconsin</option>
+            <option value="la">Los Angeles, California</option>
+            <option value="neworleans">New Orleans, Louisiana</option>
+            <option value="ny">New York City, New York</option>
+            <option value="portland">Portland, Oregon</option>
+            <option value="seattle">Seattle, Washington</option>
           </select>
         </div>
       </nav><!-- closes Navbar -->
@@ -43,26 +43,26 @@
     <!-- ROW 2 Statistical Data -->
     <div class="row">
       <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-3 col-sm-6 data" id="dataL">
-            <p>Last Years AQI Average</p>
+        <div class="row rounded">
+          <div class="col-lg-3 col-sm-6 data rounded" id="dataL" style="background-color:rgb(17,138,83)">
+            <p class="data-title">2019-2020 AQI Average</p>
             <hr>
-            <h2 id="pre"></h2>
+            <h2 class="stat" id="pre"></h2>
           </div>
-          <div class="col-md-3 col-sm-6 data" id="dataML">
-            <p>Post Ordinance AQI Average</p>
+          <div class="col-lg-3 col-sm-6 data rounded" id="dataML" style="background:rgb(17,138,83)">
+            <p class="data-title">Post Ordinance AQI Average</p>
             <hr>
-            <h2 id="post"></h2>
+            <h2 class="stat" id="post"></h2>
           </div>
-          <div class="col-md-3 col-sm-6 data" id="dataMR">
-            <p>Shelter in Place Ordinance</p>
+          <div class="col-lg-3 col-sm-6 data rounded" id="dataMR">
+            <p class="data-title">Shelter in Place Ordinance</p>
             <hr>
-            <h2 id="shelterDate"></h2>
+            <h2 class="stat" id="shelterDate"></h2>
           </div>
-          <div class="col-md-3 col-sm-6 data" id="dataR">
-            <p>City Population</p>
+          <div class="col-lg-3 col-sm-6 data rounded" id="dataR">
+            <p class="data-title">City Population</p>
             <hr>
-            <h2 id="population"></h2>
+            <h2 class="stat" id="population"></h2>
           </div>
         </div>
       </div>
@@ -88,12 +88,12 @@
         <!-- </div> closes row  -->
       </div> <!-- closes line graph Section -->
     </div> <!-- closes ROW 3  --> 
-    <div class="row fixed-bottom">
-      <p class="text-center copyright">
-          © Copyright © DANIEL LOVE, NANCY MATHUR, ANGIE ONG & CHAD GIELOW 2020
-      </p>
-    </div> <!-- closes ROW 4 Footer -->
   </div> <!-- closes Container  --> 
+  <div class="row fixed-bottom">
+    <p class="text-center copyright">
+        © Copyright © DANIEL LOVE, NANCY MATHUR, ANGIE ONG & CHAD GIELOW 2020
+    </p>
+  </div> <!-- closes ROW 4 Footer -->
 <!-- Graph scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.6.0/echarts-en.min.js"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
