@@ -285,7 +285,7 @@ function getSpline() {
             },
             axisY: {
                 includeZero: false,
-                title: "AQI value",
+                title: "AQI Value",
             },
             axisX:{
                 valueFormatString: "MM-DD",
