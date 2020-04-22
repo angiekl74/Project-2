@@ -85,7 +85,9 @@ The project is created with:
     * ![database](/images/imagesREADME/PostgreSQL.PNG "database")
 
  4. Creating Flask App
-# Can someone add some description/instructions here?
+    * Flask App converts the PostgreSQL database into an API via Python and leveraging sqlalchemy, flask & flask_cors libraries.
+    * When running create_engine be sure to include your password if needed.
+    * To activate the API via the Flask App, in the terminal execute the comand 'python app.py' and this will then launch the API and return the jsonified data into the idex.html.
 
 5. Creating graphs using 3 javascript libraries (Leaflet, JSCanvas and ECharts)
     * To explore the interactive capabilities of Leaflet choropleth map (https://leafletjs.com/examples/choropleth/) 
