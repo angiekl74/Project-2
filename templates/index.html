@@ -18,14 +18,12 @@
   crossorigin=""></script>
   <!-- d3 JavaScript -->
   <script src="https://d3js.org/d3.v4.min.js"></script>
-  <!-- Leaflet-Choropleth JavaScript -->
-  <script type="text/javascript" src="../static/js/choropleth.js"></script>
 </head>
 <body>
   <!-- Overall conatainer -->
   <div class="container-fluid">
     <!-- ROW 1 Navbar-->
-    <div class="row stick-top">
+    <div class="row sticky-top">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-light theheader">
         <!-- Page Title -->
@@ -35,23 +33,23 @@
           <span class="navbar-toggler-icon hamburger"></span>
         </button>
         <!-- City dropdown links to visuals -->
-        <div class="collapse navbar-collapse navvy_bg" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse navvy_a" id="navbarSupportedContent">
           <ul class="navbar-nav col-lg-4 ml-auto">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: large;">
                 City Data
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="http://127.0.0.1:5000/boise">Boise</a> 
-                <a class="dropdown-item" href="http://127.0.0.1:5000/columbus">Columbus</a> 
-                <a class="dropdown-item" href="http://127.0.0.1:5000/detroit">Detroit</a>
-                <a class="dropdown-item" href="http://127.0.0.1:5000/indianapolis">Indianapolis</a>
-                <a class="dropdown-item" href="http://127.0.0.1:5000/milwaukee">Milwaukee</a>
-                <a class="dropdown-item" href="http://127.0.0.1:5000/la">Los Angeles</a> 
-                <a class="dropdown-item" href="http://127.0.0.1:5000/neworleans">New Orleans</a> 
-                <a class="dropdown-item" href="http://127.0.0.1:5000/ny">New York City</a>
-                <a class="dropdown-item" href="http://127.0.0.1:5000/portland">Portland</a>
-                <a class="dropdown-item" href="http://127.0.0.1:5000/seattle">Seattle</a> 
+                <a class="dropdown-item" href="http://127.0.0.1:5000/boise">Boise, Idaho</a> 
+                <a class="dropdown-item" href="http://127.0.0.1:5000/columbus">Columbus, Ohio</a> 
+                <a class="dropdown-item" href="http://127.0.0.1:5000/detroit">Detroit, Michigan</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/indianapolis">Indianapolis, Indiana</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/milwaukee">Milwaukee, Wisconsin</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/la">Los Angeles, California</a> 
+                <a class="dropdown-item" href="http://127.0.0.1:5000/neworleans">New Orleans, Louisiana</a> 
+                <a class="dropdown-item" href="http://127.0.0.1:5000/ny">New York City, New York</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/portland">Portland, Oregon</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/seattle">Seattle, Washington</a> 
               </div>
             </li>
           </ul>
@@ -61,9 +59,8 @@
     <!-- ROW 2 Choropleth Map -->
     <div class="row row-background align-items-start"> 
       <!-- Choropleth Map Section -->
-      <div class="col-sm-12" id="mapbox">
+      <div class="col-sm-12 rounded" id="mapbox">
 				<h3 class="title text-center">US Cities AQI Averages Post Shelter in Place Ordinance</h3>
-				<hr>
         <div id="map" style= "height: 500px"></div>
 				<p >This Choropleth Graph shows the average AQI values of the largest city
 					in each of the 50 states. The average is calculated from the day after the state
@@ -77,23 +74,23 @@
     <!-- ROW 3 Flag Links -->
     <div class="row">
       <div class="col-md-12 text-center flagbox">
-        <h3 class="text-left">10 CITIES TO TAKE A CLOSER LOOK AT:</h3>
+        <h3 class="title text-center">Take a Closer Look</h3>
         <div class="row">
           <div class="col-md-1" style="width:10px; padding: 0px;">
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-12 flag">
             <a href="http://127.0.0.1:5000/boise">Boise<br><img alt="Bootstrap Image Preview" src="../images/boise_flag.png" /></a>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-12 flag">
             <a href="http://127.0.0.1:5000/columbus">Columbus<br><img alt="Bootstrap Image Preview" src="../images/columbus_flag.png" /></a>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-12 flag">
             <a href="http://127.0.0.1:5000/detroit">Detroit<br><img alt="Bootstrap Image Preview" src="../images/detroit_flag.png" /></a>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-12 flag">
             <a href="http://127.0.0.1:5000/indianapolis">Indianapolis<br><img alt="Bootstrap Image Preview" src="../images/indianapolis_flag.png" /></a>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-12 flag">
             <a href="http://127.0.0.1:5000/milwaukee">Milwaukee<br><img alt="Bootstrap Image Preview" src="../images/milwaukee_flag.png" /></a>
           </div>
           <div class="col-md-1" style="width:10px; padding: 0px;">
@@ -102,19 +99,19 @@
         <div class="row" style="padding-top: 10px;">
           <div class="col-md-1" style="width:10px; padding: 0px;">
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-12 flag">
             <a href="http://127.0.0.1:5000/la">Los Angeles<br><img alt="Bootstrap Image Preview" src="../images/losangeles_flag.jpg"/></a>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-12 flag">
             <a href="http://127.0.0.1:5000/neworleans">New Orleans<br><img alt="Bootstrap Image Preview" src="../images/no_flag.jpg"/></a>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-12 flag">
             <a href="http://127.0.0.1:5000/ny">New York City<br><img alt="Bootstrap Image Preview" src="../images/nyc_flag.png"/></a>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-12 flag">
             <a href="http://127.0.0.1:5000/portland">Portland<br><img alt="Bootstrap Image Preview" src="../images/portland_flag.png"/></a>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 col-sm-12 flag">
             <a href="http://127.0.0.1:5000/seattle">Seattle<br><img alt="Bootstrap Image Preview" src="../images/seattle_flag.png"/></a>
           </div>
           <div class="col-md-1" style="width:10px; padding: 0px;">
@@ -124,15 +121,17 @@
     </div>
     <!-- closes -->
     <!-- ROW 4 Footer -->
-    <div class="row fixed-bottom">
+    <div class="row">
       <p class="text-center copyright">
           © Copyright © DANIEL LOVE, NANCY MATHUR, ANGIE ONG & CHAD GIELOW 2020
       </p>
     </div> <!-- closes ROW 4 Footer -->
-  </div> <!-- closes Container  -->  
+  </div> <!-- closes Container  --> 
+<!-- Leaflet-Choropleth JavaScript -->
+<script type="text/javascript" src="../static/js/choropleth.js"></script> 
 <!-- Map scripts -->
 <script type="text/javascript" src="../static/js/config.js"></script>
-<script type="text/javascript" src="../static/js/logic.js"></script>
+<script type="text/javascript" src="../static/js/index.js"></script>
 <!-- Bootstrap Code to use their tools -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

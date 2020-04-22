@@ -65,7 +65,17 @@ function getSummary() {
         document.getElementById("post").innerHTML = round_meanAqiPost;
         document.getElementById("shelterDate").innerHTML = chosenCityShelterDate2;
         document.getElementById("population").innerHTML = chosenCityPopulation2;
-        
+
+        if (round_meanAqiPre >= 50) {
+            document.getElementById("dataL").style["background-color"] = "#f5bd1f";
+        }   else {
+                document.getElementById("dataL").style["background-color"] = "#006600";
+        }
+        if (round_meanAqiPost >= 50) {
+            document.getElementById("dataML").style["background-color"] = "#f5bd1f";
+        }   else {
+                document.getElementById("dataML").style["background-color"] = "#006600";
+        }
     })
 }
 
@@ -87,7 +97,7 @@ function getPlot() {
             chosenCityName.push(data[i].city_name);
             chosenCityShelterDate.push(data[i].state_ordinance)
         }
-        
+
         var chosenCityName2 = chosenCityName[0].replace('_',' ');
         var shelterDay = new Date(chosenCityShelterDate[0])
         var chosenCityShelterDate2 = new Date(chosenCityShelterDate[0]).toISOString().slice(5, 10);
@@ -133,21 +143,21 @@ function getPlot() {
                     
             },          
             yAxis: { 
-                    // splitLine: {
-                    // show: false  // ??? AO - splitLine - not sure what this does
-                    //     },
-                    
-                        type: 'value',
-                        name: 'AQI Value',
-                        nameLocation:'middle',
-                        nameGap: 30
-                       // nameRotate:0,
-                        // position: 'left',
-                        // min:0,
-                        // max:14,
-                        // axisTick: {
-                        //     alignWithLabel: false
-                        // },
+                // splitLine: {
+                // show: false  // ??? AO - splitLine - not sure what this does
+                //     },
+                
+                    type: 'value',
+                    name: 'AQI Value',
+                    nameLocation:'middle',
+                    nameGap: 30
+                   // nameRotate:0,
+                    // position: 'left',
+                    // min:0,
+                    // max:14,
+                    // axisTick: {
+                    //     alignWithLabel: false
+                    // },
             },
             visualMap: {
                 top: -5,
@@ -155,15 +165,15 @@ function getPlot() {
                 pieces: [{
                     gt: 0,
                     lte: 50,
-                    color: '#096'
+                    color: '#006600'
                 }, {
                     gt: 50,
                     lte: 100,
-                    color: '#ffde33'
+                    color: '#f5bd1f'
                 }, {
                     gt: 100,
                     lte: 150,
-                    color: '#ff9933'
+                    color: '#ff4500'
                 // }, {
                 //     gt: 150,
                 //     lte: 200,
@@ -259,10 +269,10 @@ function getSpline() {
             aqi.push(parseInt(info[i].aqi_value));
             city.push(info[i].city_name);
         }
-        // console.log(date)
+      
         var city2 = city[0].replace("_", " ")
-        console.log(city2)
-        
+        // console.log(city2)
+       
         var dps = [];
         var dps2 = [];
         var chart = new CanvasJS.Chart("chartContainer", {
