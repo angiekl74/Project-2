@@ -19,9 +19,13 @@ var statesAQI = "../static/data/statesAQI.json";
 // Format Date
 function formatDate(nowDate) {
   nowDate = (nowDate.getMonth() + 1) +'/'+ (nowDate.getDate()+1) +"/"+ nowDate.getFullYear();
-  if (nowDate === "12/31/1969")
+  if (nowDate === "12/32/1969") {
     nowDate = "None"
-
+  }
+  if (nowDate === "3/32/2020") {
+    nowDate = "4/1/2020"
+  } 
+  
 	return nowDate;
 }
 
