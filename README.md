@@ -20,10 +20,10 @@ The question we hope to be able to answer and show through data visualization: <
 ## Outcome
 This project group developed 2 interactive dashboards to show the effects of Covid-19 on the AQI (air quality index).  
 
-* ![](/images/imagesREADME/ExampleChoropleth.gif)
+* ![](/static/images/imagesREADME/ExampleChoropleth.gif)
     * A general AQI overview across the United States
 
-* ![](/images/imagesREADME/ExampleDashboard.gif)
+* ![](/static/images/imagesREADME/ExampleDashboard.gif)
     * The dashboard displays more indepth data for following cities: Milwaukee WI, Indianapolis IN, Boise ID, Detroit Michigan, New Orleans LA, Columbus OH, Seattle WA, Portland OR, Los Angeles CA and New York City NY.
     * Average AQI data for selected city (pre and post State Ordinance date), State ordinance date, Population
     * Bar chart illustrates the selected city's daily AQI
@@ -78,19 +78,22 @@ The project is created with:
         1. Please make sure your PostgreSQL database is setup
         2. Create config.py to hide PostgreSQL password (if needed)
         2. Run each step of Jupyter Notebook file (CleanedAQIDATA.ipynb). Running the file without errors will generate 10 tables in PostgreSQL database for each city. 
-    * * ![jupyter_notebook](/images/imagesREADME/jupyterNotebook.PNG "jupyter_notebook")
+    * * ![jupyter_notebook](/static/images/imagesREADME/jupyterNotebook.PNG "jupyter_notebook")
 
 3. Data Storage
     * Utilized PostgreSQL database
-    * ![database](/images/imagesREADME/PostgreSQL.PNG "database")
+    * ![database](/static/images/imagesREADME/PostgreSQL.PNG "database")
 
  4. Creating Flask App
     * Flask App converts the PostgreSQL database into an API via Python and leveraging sqlalchemy, flask & flask_cors libraries.
     * When running create_engine be sure to include your password if needed.
     * To activate the API via the Flask App, in the terminal execute the comand 'python app.py' and this will then launch the API and return the jsonified data into the idex.html.
+<<<<<<< HEAD
 
+=======
+>>>>>>> 80441ef60911711cc1bf0e724c1f0e78daa29dd7
 
-5. Creating graphs using 3 javascript libraries (Leaflet, JSCanvas and ECharts)
+5. Creating graphs using 3 javascript libraries (Leaflet, CanvasJS and ECharts)
     * To explore the interactive capabilities of Leaflet choropleth map (https://leafletjs.com/examples/choropleth/) 
     * To download javascript code sample to create dynamic multi series line chart (https://canvasjs.com/javascript-charts/dynamic-live-multi-series-chart/)
     * To review EChart Beijing inspired AQI chart (https://echarts.apache.org/examples/en/editor.html?c=line-aqi). &nbsp; &nbsp; Note: To make more impactful chart, we dicided to show a bar chart instead of a line due to lack of datapoints. 

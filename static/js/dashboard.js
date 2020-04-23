@@ -1,7 +1,7 @@
 d3.select("#selDataset").on("change", updateGraphs);
 //Format Date
 function formatDate(nowDate) {
-    nowDate = (nowDate.getMonth() + 1) +'/'+ nowDate.getDate() +"/"+ nowDate.getFullYear();
+    nowDate = (nowDate.getMonth() + 1) +'/'+ (nowDate.getDate() + 1) +"/"+ nowDate.getFullYear();
     return nowDate;
 }
 
