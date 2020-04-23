@@ -27,7 +27,7 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-dark theheader">
         <!-- Page Title -->
-        <a class="navbar-brand text-white" href="http://127.0.0.1:5500/templates/index.html">Covid 19 Effects on Air Quality</a>
+        <a class="navbar-brand text-white" href="http://127.0.0.1:5000/">Covid 19 Effects on Air Quality</a>
         <!-- Hamburger toggler button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon hamburger"></span>
@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse navvy_a" id="navbarSupportedContent">
           <ul class="navbar-nav col-lg-4 ml-auto">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: large;">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: medium;">
                 City Data
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -52,6 +52,10 @@
                 <a class="dropdown-item" href="http://127.0.0.1:5000/seattle">Seattle, Washington</a> 
               </div>
             </li>
+            <!-- Homepage Link -->
+            <li class="nav-item">
+              <a class="nav-link text-white" id="homepage-link" href="http://127.0.0.1:5000/" style="font-size: medium;"> US Map</a>
+            </li>
           </ul>
         </div>
       </nav><!-- closes Navbar -->
@@ -61,7 +65,7 @@
       <!-- Choropleth Map Section -->
       <div class="col-sm-12 rounded" id="mapbox">
 				<h3 class="title text-center">US Cities AQI Averages Post Shelter in Place Ordinance</h3>
-        <div id="map" style= "height: 500px"></div>
+        <div id="map" style= "height: 650px"></div>
 				<p >This Choropleth Graph shows the average AQI values of the largest city
 					in each of the 50 states. The average is calculated from the day after the state
 					declared their Shelter in Place Ordinance until April 10th, 2020. Salt Lake City and 
@@ -79,19 +83,19 @@
           <div class="col-md-1" style="width:10px; padding: 0px;">
           </div>
           <div class="col-md-2 col-sm-12 flag">
-            <a href="http://127.0.0.1:5000/boise">Boise<br><img alt="Bootstrap Image Preview" src="../images/boise_flag.png" /></a>
+            <a href="http://127.0.0.1:5000/boise">Boise<br><img alt="Bootstrap Image Preview" src="../static/images/boise_flag.png" /></a>
           </div>
           <div class="col-md-2 col-sm-12 flag">
-            <a href="http://127.0.0.1:5000/columbus">Columbus<br><img alt="Bootstrap Image Preview" src="../images/columbus_flag.png" /></a>
+            <a href="http://127.0.0.1:5000/columbus">Columbus<br><img alt="Bootstrap Image Preview" src="../static/images/columbus_flag.png" /></a>
           </div>
           <div class="col-md-2 col-sm-12 flag">
-            <a href="http://127.0.0.1:5000/detroit">Detroit<br><img alt="Bootstrap Image Preview" src="../images/detroit_flag.png" /></a>
+            <a href="http://127.0.0.1:5000/detroit">Detroit<br><img alt="Bootstrap Image Preview" src="../static/images/detroit_flag.png" /></a>
           </div>
           <div class="col-md-2 col-sm-12 flag">
-            <a href="http://127.0.0.1:5000/indianapolis">Indianapolis<br><img alt="Bootstrap Image Preview" src="../images/indianapolis_flag.png" /></a>
+            <a href="http://127.0.0.1:5000/indianapolis">Indianapolis<br><img alt="Bootstrap Image Preview" src="../static/images/indianapolis_flag.png" /></a>
           </div>
           <div class="col-md-2 col-sm-12 flag">
-            <a href="http://127.0.0.1:5000/milwaukee">Milwaukee<br><img alt="Bootstrap Image Preview" src="../images/milwaukee_flag.png" /></a>
+            <a href="http://127.0.0.1:5000/milwaukee">Milwaukee<br><img alt="Bootstrap Image Preview" src="../static/images/milwaukee_flag.png" /></a>
           </div>
           <div class="col-md-1" style="width:10px; padding: 0px;">
           </div>
@@ -100,26 +104,25 @@
           <div class="col-md-1" style="width:10px; padding: 0px;">
           </div>
           <div class="col-md-2 col-sm-12 flag">
-            <a href="http://127.0.0.1:5000/la">Los Angeles<br><img alt="Bootstrap Image Preview" src="../images/losangeles_flag.jpg"/></a>
+            <a href="http://127.0.0.1:5000/la">Los Angeles<br><img alt="Bootstrap Image Preview" src="../static/images/losangeles_flag.jpg"/></a>
           </div>
           <div class="col-md-2 col-sm-12 flag">
-            <a href="http://127.0.0.1:5000/neworleans">New Orleans<br><img alt="Bootstrap Image Preview" src="../images/no_flag.jpg"/></a>
+            <a href="http://127.0.0.1:5000/neworleans">New Orleans<br><img alt="Bootstrap Image Preview" src="../static/images/no_flag.jpg"/></a>
           </div>
           <div class="col-md-2 col-sm-12 flag">
-            <a href="http://127.0.0.1:5000/ny">New York City<br><img alt="Bootstrap Image Preview" src="../images/nyc_flag.png"/></a>
+            <a href="http://127.0.0.1:5000/ny">New York City<br><img alt="Bootstrap Image Preview" src="../static/images/nyc_flag.png"/></a>
           </div>
           <div class="col-md-2 col-sm-12 flag">
-            <a href="http://127.0.0.1:5000/portland">Portland<br><img alt="Bootstrap Image Preview" src="../images/portland_flag.png"/></a>
+            <a href="http://127.0.0.1:5000/portland">Portland<br><img alt="Bootstrap Image Preview" src="../static/images/portland_flag.png"/></a>
           </div>
           <div class="col-md-2 col-sm-12 flag">
-            <a href="http://127.0.0.1:5000/seattle">Seattle<br><img alt="Bootstrap Image Preview" src="../images/seattle_flag.png"/></a>
+            <a href="http://127.0.0.1:5000/seattle">Seattle<br><img alt="Bootstrap Image Preview" src="../static/images/seattle_flag.png"/></a>
           </div>
           <div class="col-md-1" style="width:10px; padding: 0px;">
           </div>
         </div>
       </div>
-    </div>
-    <!-- closes -->
+    </div><!-- closes ROW 3Flag links -->
     <!-- ROW 4 Footer -->
     <div class="row">
       <p class="text-center copyright">
