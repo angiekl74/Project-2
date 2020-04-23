@@ -89,7 +89,7 @@ The project is created with:
     * When running create_engine be sure to include your password if needed.
     * To activate the API via the Flask App, in the terminal execute the comand 'python app.py' and this will then launch the API and return the jsonified data into the idex.html.
 
-5. Creating graphs using 3 javascript libraries (Leaflet, JSCanvas and ECharts)
+5. Creating graphs using 3 javascript libraries (Leaflet, CanvasJS and ECharts)
     * To explore the interactive capabilities of Leaflet choropleth map (https://leafletjs.com/examples/choropleth/) 
     * To download javascript code sample to create dynamic multi series line chart (https://canvasjs.com/javascript-charts/dynamic-live-multi-series-chart/)
     * To review EChart Beijing inspired AQI chart (https://echarts.apache.org/examples/en/editor.html?c=line-aqi). &nbsp; &nbsp; Note: To make more impactful chart, we dicided to show a bar chart instead of a line due to lack of datapoints. 
